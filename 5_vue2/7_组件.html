@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+        
+            组件:
+                1. 注册组件
+                    全局注册: Vue.component("自定义组件名",{配置项})
+                        配置项: template data methods computed watch ...
+                    局部注册: 你的组件想在哪个组件中使用,就在哪里注册
+
+                    template里面只能有一个最外层<div>,不能有两个最外层<div>同时存在
+        
+        
+        -->
+        <my-head></my-head>
+        <!-- 驼峰大小写换成横线形式 -->
+        <!-- 写成自闭合的形式也可以 -->
+        <my-app2/>
+    </div>
+    <script>
+        //注册组件
+        Vue.component("my-head", {
+            // 子组件模板
+            template:`<div>
+                        <p :class="b">我是子组件 {{a}}</p>
+                        <button @click='btn'>子组件按钮</button>
+                      </div>
+            `,
+            // 组件中的data值是个函数
+            data(){
+                return{
+                    a:"子组件的a",
+                    b:"box",
+                }
+            },
+            methods:{
+                btn(){
+                    console.log("组件的事件触发了");
+                }
+            }
+        })
+
+        // 可以将配置项存到一个变量里面,使代码整洁
+        let myApp2 = {
+            template:`<div>
+                        <p :class="b">我是子组件2 {{a}}</p>
+                        <button @click='btn'>子组件按钮2</button>
+                      </div>
+            `,
+            data(){
+                return{
+                    a:"子组件2的a",
+                    b:"box",
+                }
+            },
+            methods:{
+                btn(){
+                    console.log("组件2的事件触发了");
+                }
+            }
+        }
+
+        // 根实例
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            components:{
+                myApp2,
+            }
+        })
+
+    </script>
+</body>
+</html>

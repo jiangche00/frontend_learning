@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clear{clear: both;}
+        .head{width: 1200px; margin: auto; font-size: 18px; color: #3c3d46;}
+        .logo{margin-top: 7px;}
+        .logo img{vertical-align: middle;}
+        li{list-style: none;}
+        .nav li{
+            float: left; 
+            width: 80px; 
+            height: 72px; 
+            margin-right: 24px;
+            text-align: center;
+            line-height: 72px;
+        }
+        .nav{margin-left: 159px;}
+        .act{background-color: #5696ff; color: #fff !important;}
+        .login{line-height: 72px;}
+        .line{margin: 0 10px;}
+
+
+
+        .banner{
+            height: 48px;
+            background: url(youyou-main-adv.jpg) no-repeat center;
+            padding-top: 552px;
+        }
+        .change{width: 53px; margin: auto;}
+        .cir{width: 16px; height: 16px; border-radius: 50%;}
+        .circle1{background-color: #fff;}
+        /* box-sizing: border-box 把描边算在宽高里面 */
+        .circle2{border: #fff 2px solid; box-sizing: border-box;}
+
+
+        .title .line{width: 78px; height: 6px; background-color: #666666; margin-top: 18px;}
+        .area{width: 327px; margin: auto; margin-top: 170px;}
+        .title h1{margin-left: 2px; font-size: 32px; color: #5696ff;}
+        .second_title{text-align: center; font-size: 22px; color: #666666; margin-top: 24px;}
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <!-- 头部导航 -->
+    <div class="head">
+        <div class="logo fl">
+            <img src="youyou-logo-icon.png" alt="">
+            <img src="youyou-logo-text.png" alt="">
+        </div>
+        <ul class="nav fl">
+            <li class="act">首页</li>
+            <li>地区</li>
+            <li>特惠</li>
+            <li>资讯</li>
+            <li>游记</li>
+            <div class="clear"></div>
+        </ul>
+        <div class="fr login">
+            <span>登陆</span><span class="line">|</span><span>注册</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- banner图 -->
+    <div class="banner">
+        <div class="change">
+            <div class="circle1 cir fl"></div>
+            <div class="circle2 cir fr"></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 地区旅游 -->
+    <div class="area">
+        <div class="title">
+            <div class="line fl"></div>
+            <h1 class="fl">地区旅游</h1>
+            <div class="line fr"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="second_title">
+            从这开始有意思的地区文化
+        </div>
+    </div>
+</body>
+</html>

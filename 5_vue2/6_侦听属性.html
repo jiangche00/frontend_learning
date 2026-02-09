@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侦听属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+            watch 监听器: 当某个数据发生变化,你想执行什麼事的时候,用watch
+            watch里面的函数名就是需要监听的数据名
+                比如data里面有一个名字交msg的数据需要监听
+                在watch里面就要定义一个同样名字叫msg的函数,用来监听data里面的msg数据
+            首次加载页面时watch不作用
+
+            watch能监听的数据
+                data中的数据
+                computed定义的函数中,所依赖的数据
+                props中的属性(props在组件传值章节中介绍)
+
+
+
+            methods computed watch相同点和不同点
+                1. 相同点
+                    都是对象, 里面接收函数
+                2. 不同点
+                    函数名 computed和methods函数名可以自定义, watch不能自定义
+                    返回值 computed要求一定有返回值, methods watch随意
+                    执行时机 methods主动调用触发 computed是依赖的值变化才触发 watch是监听的数据变化才触发
+        -->
+        <div>{{msg.a}} -- {{msg.b}}</div>
+        <h1>{{title}}</h1>
+        <button @click="changeMsg">change Msg</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                msg:{
+                    a:"hello",
+                    b:"world",
+                }
+            },
+            computed:{
+                title(){
+                    return this.msg.a + this.msg.b;
+                }
+            },
+            watch:{
+                msg(){
+                    console.log("msg changed");
+                },
+                title(){
+                    // 当computed里面的title所依赖的msg.a或者msg.b变化之后,在这里触发
+                    console.log("title changed");
+                }
+            },
+            methods:{
+                changeMsg(){
+                    this.msg.a = this.msg.a.includes("change") ? this.msg.a = "hello" : this.msg.a += " change";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

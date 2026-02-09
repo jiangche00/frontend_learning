@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div{width:500px; height:500px; background-color:red} */
+        /* 点号是class的标识符 */
+        .red{width: 500px; height: 500px; background-color: red;}
+        /* 井号是id的标识符 */
+        #purple{width: 150px; height: 150px; background-color: purple;}
+
+        /* 
+            一般在css里面不使用id，id一般在js里面使用
+            id不允许重复，但是class可以重复
+            在css里面，多使用class
+         */
+         /* 添加 !important ，让该样式的优先级最高，无视内联，内部，外部 */
+         .pink{width: 400px; height: 400px; background-color: pink !important;}
+    </style>
+    <!-- 
+        引入外部样式
+        href使用相对路径，相对于当前html文件的路径
+     -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- <div style="width: 500px; height: 500px; background-color: red;">
+        <div style="width: 200px; height: 200px; background-color: blue;"></div>
+    </div>
+    <div style="width: 300px; height: 300px; background-color: yellow;"></div> -->
+    
+    <!-- 后面的yellow覆盖了前面的red -->
+    <div class="red yellow"></div>
+    <div id="purple"></div>
+
+    <!-- 内部样式中：id优先级比class优先级要高 -->
+    <div class="red" id="purple"></div>
+
+    <!-- 样式的优先级：内联样式 > 内部样式 -->
+    <div class="red" style="width: 50px; height: 50px; background-color: aqua;"></div>
+
+    <div class="pink" style="background-color: black;"></div>
+
+    <!-- 
+        总结：样式的优先级
+        内联样式 > 内部样式（id > class > tag）
+        同等级的具体的样式，后面的会覆盖掉前面的样式
+
+        按数字表示优先级权重:
+        !important: 10000
+        内联样式: 1000
+        内部样式: 
+            id: 100
+            class: 10
+            tag: 1
+    -->
+</body>
+</html>

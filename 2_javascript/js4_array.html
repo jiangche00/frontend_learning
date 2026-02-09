@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            数据类型：
+                基本数据类型：string number boolean undefined null(空指针，可以用于主动释放数组/对象)
+                引用数据类型Array(数组), Object(对象)
+                差别：存储位置不同
+                    栈：存储基本数据类型
+                    堆：存储引用数据
+
+            数组：用来存储多个数据的,可以混杂存储
+        */
+        var arr=[1,2,3,4,5,"a","b","c",true,[11,12,13]];
+        console.log(arr);
+        console.log(arr[2]); // 拿数组中的index为2的元素。index从0开始算第一个
+        arr[0] = 100; // 修改数组中元素
+        console.log(arr.length) //获取数组长度
+
+        var arr2=[1,2,3,4,5,6,7,8,9,10,"hello",false,[11,12,13]];
+        // 数组处理函数
+        function DataTransform1(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (typeof arr[i] === "number" && arr[i] >= 1 && arr[i] <= 7) {
+                    if (arr[i] === 7) {
+                        arr[i] = "星期日";
+                    } else {
+                        arr[i] = "星期" + arr[i];
+                    }
+                } else {
+                    continue
+                }
+            }
+            return arr;
+        }
+        console.log(DataTransform1(arr2));
+
+        var arr3=[14,2,3,64,12,36,29,24,128];
+        //冒泡排序
+        function BubbleSort(arr) {
+            var swap;
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j+1]) {
+                        swap = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = swap;
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(BubbleSort(arr3));
+    </script>
+</body>
+</html>

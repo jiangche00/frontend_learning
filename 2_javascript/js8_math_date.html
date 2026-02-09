@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Math对象
+
+            round() 四舍五入
+            ceil() 向上取整
+            floor() 向下取整
+            abs() 绝对值
+            min() 最小值
+            max() 最大值
+            random() 生成随机数
+                取任意区间的随机数 Math.floor(Math.random()*(max - min + 1)) + min
+
+
+        Date对象
+            1. new Date() 不传参返回当前日期对象，传参可以创建一个固定的日期对象
+            2. 日期对象可以相减，返回的是间隔毫秒数
+            3. getFullYear() 返回年份，number类型
+            4. getMonth() 返回月份，0-11, number, 需要+1修正
+            5. getDate() 日期 1-31, number
+            6. getDay() 星期几 0-6 0周日,1周一, ... 6周六
+            7. getHours() 小时 0-23
+            8. getMinutes() 分钟 0-59
+            9. getSeconds() 秒 0-59
+            10. getMillseconds() 毫秒 0-999
+            11. getTime() 返回1970年1月1日的毫秒数
+            12. 以上所有方法把get改成set就是更改日期函数
+
+
+
+        Error对象
+            SyntaxError 语法错误
+            ReferenceError 引用错误(对象调用了错误的方法)
+
+        */
+
+        // 创建日期对象
+        var date = new Date("2023.11.11 00:00:00"); //返回传参的日期对象，Sat Nov 11 2023 00:00:00 GMT+0800 (China Standard Time)
+        var now = new Date(); // 返回当前日期对象
+        console.log(now - date);  // 返回时间差，毫秒
+
+
+        var err = new Error();
+        console.error(123);
+    </script>
+</body>
+</html>

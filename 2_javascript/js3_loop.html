@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            循环语句：
+                循环：程序反复执行一套代码
+                while(){}
+                for(){}
+                循环中断：break
+                循环继续: continue
+                break 和 continue一般套在循环里面的if里面
+        */
+
+        var n=5;
+        while(n>0){
+            console.log("run 1 time, " + n);
+            n--;
+        }
+
+        // for循环里面的m是全局变量
+        for(var m = 5; m > 0; m--) {
+            console.log("run 1 time, " + m);
+        }
+
+        // for循环9*9乘法表
+        for(var ii = 1; ii <= 9; ii++) {
+            var line = "";
+            for (var jj = 1; jj <= ii; jj++) {
+                line += jj + "*" + ii + "=" + jj * ii + "  ";
+            }
+            console.log(line);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双向绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <!-- 
+
+        v-model: 双向绑定, 只给表单元素使用 input select
+        相当于操作一个表单能变更,获取到其他表单的数据
+            1. 双向绑定的是表单的alue
+            2. 对于单选框绑定到的是值,只有给表单自带的value一致时,会表现为选中状态
+    
+    -->
+    <div id="app">
+        <!-- 
+            这个input表单失去焦点时,在console上打印另一个input表单绑定的value
+            失去焦点时另一个表单绑定了val2变量,数据视图上真实的value值会同步到Vue实例的val2上面
+            因此search函数操作的val2也就是当前最新的表单上的值
+        -->
+        <input type="text" v-model="val" @click="search">
+        <input type="text" v-model="val2">
+        <!-- 
+            对于单选框,下面和val3绑定,并且设定选中之后的值为check
+            当没有选中的时候,数据中的val3为默认定义的initial
+            当选中之后,会将选中之后的值同步到val3,因此val3从initial变为check
+        -->
+        <input type="radio" v-model="val3" value="check">
+        <h1 v-html="val3"></h1>
+        <!-- 
+            多选框,对于单个的多选框来说,绑定的时boolean值
+            如下虽然给了value赋值为hello,vue实例中的初始值为initial,但是选中时val4变为true,之后再取消选中则成为false,
+        -->
+        <input type="checkbox" v-model="val4" value="hello">
+        <h2 v-html="val4"></h1>
+        <!-- 
+            多选框,对于多个多选框组成一组的(即v-model都绑到同一变量, 绑定的是数组,选中哪项就有哪项的值
+            vue实例中使用一个数组来存储和同步各个value    
+        -->
+        <input type="checkbox" v-model="val5" value="option1">
+        <input type="checkbox" v-model="val5" value="option2">
+        <input type="checkbox" v-model="val5" value="option3">
+        <h2 v-html="val5"></h2>
+        <!-- 
+            下拉选择框
+        -->
+        <select v-model="val6">
+            <option>option1</option>
+            <option>option2</option>
+            <option>option3</option>
+            <option>option4</option>
+        </select>
+        <h2 v-html="val6"></h2>
+
+        <!-- 
+            v-model修饰符
+                v-model.trim 去掉首位空格
+                v-model.number 自动将字符串转换为数字
+        -->
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                val: "",
+                val2: "",
+                val3: "initial",
+                val4: "initial",
+                val5: [],
+                val6: "initial",
+            },
+            methods: {
+                search() {
+                    console.log(this.val2);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

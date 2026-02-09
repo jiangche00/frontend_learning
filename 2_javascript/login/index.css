@@ -1,0 +1,104 @@
+/* public */
+* {
+    margin: 0;
+    padding: 0;
+}
+.w500 {
+    width: 500px;
+    margin: auto;
+}
+.w400 {
+    width: 400px;
+    margin: auto;
+}
+body {
+    background-color: #bbbbbb
+}
+.banner{
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 34px;
+    text-align: center;
+    color: black;
+    margin-top: 100px;
+}
+
+
+/* register panel */
+.register_panel{
+    height: 380px;
+    background-color: #fff;
+    border: #fff 1px solid;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: #666666 0px 0px 10px 0px;
+    margin-top: 20px;
+}
+/* input */
+.input{
+    font-size: 24px;
+    color: black;
+    position: relative;
+    margin-top: 10px;
+}
+.check{
+    font-size: 18px;
+    color: red;
+    line-height: 18px;
+    text-align: center;
+}
+#username{
+    font-size: 22px;
+    height: 22px;
+    width: 150px;
+    position: absolute;
+    right: 100px;
+}
+#password{
+    font-size: 22px;
+    height: 22px;
+    width: 150px;
+    position: absolute;
+    right: 100px;
+}
+#pwd_icon,#pwd_check_icon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 105px;
+    padding-top: 3px;
+    display: inline;
+}
+#pwd_icon:hover,#pwd_check_icon:hover{
+    cursor: pointer;
+}
+#re-password{
+    font-size: 22px;
+    height: 22px;
+    width: 150px;
+    position: absolute;
+    right: 100px;
+}
+.split{
+    width: 500px;
+    border: #cecece 1px solid;
+    margin-top: 30px;
+}
+#register_btn{
+    width: 200px;
+    height: 40px;
+    background-color: #5696ff;
+    border: #5696ff 1px solid;
+    border-radius: 4px;
+    font-size: 18px;
+    color:#fff;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 12px;
+}
+#register_btn:hover{
+    cursor: pointer;
+}
+.mgn_tp40{
+    margin-top: 40px;
+}

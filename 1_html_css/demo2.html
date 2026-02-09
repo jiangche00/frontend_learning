@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            元素有默认的高度和宽度
+            默认的宽度由父集决定
+            默认的高度由子集决定
+        */
+
+        /* 
+            margin: 100px 上下左右都是100px
+            margin: 100px 200px 上下是100px，左右是200px
+            margin: 100px 200px 300px 上面100px，左右200px，下面300px
+            margin: 100px 200px 300px 400px 上面100px，右边200px，下面300px 左边400px（顺时针）
+
+            padding同理
+        */
+        .top{
+            width: 500px; 
+            height: 100px; 
+            background-color: red;
+            margin-bottom: 100px;
+        }
+
+        .bottom{
+            width: 500px;
+            height: 400px;
+            background-color: green;
+            margin-top: 10px;
+            margin-bottom: 100px;
+        }
+
+        .inner1{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+        .top2{
+            width: 500px;
+            height: 200px;
+            background-color: blue;
+            margin-top: 100px;
+        }
+
+        .out1{
+            width: 400px;
+            height: 100px;
+            background-color: blue;
+            padding-left: 100px;
+            margin-bottom: 100px;
+        }
+
+        .in2{
+            width: 100px;
+            height: 50px;
+            background-color: pink;
+        }
+
+        .out2 {
+            width: 500px;
+            height: 500px;
+            background-color: green;
+            /* 参照物 */
+            position: relative;
+        }
+
+        .in3 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* 针对out2, 进行调整 */
+            position: absolute;
+            /* 离右边为0 */
+            right: 0px;
+        }
+
+        .in4 {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            left: 0px;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!--
+        外边距：margin
+            margin存在的问题：
+            1. margin塌陷：
+                子父级，margin-top给子集添加，会造成父级和子级隔不开距离，好像父级和子集一起塌陷下来了
+                如果父极也有margin-top，则比较其子集的margin-top，哪个大，则应用到父极上
+                比如父集的margin-top是50px，子集是100px，则塌陷值取100px
+            2. margin合并：
+                同级，垂直方向，上下挨着的margin，会合并，取较大值
+                比如上面的块的margin-bottom是100px，下面挨着的块的margin-top是150px，则实际上的两个块的margin合并为150px
+
+
+
+        内边距：padding
+            padding存在的问题：
+            1. 自动增宽或者增高，保持容积不变
+                比如增加了padding-top 100px，则会对块的高度上增加100px
+                比如增加了padding-left 20px，则会对块的宽度上增加20px
+               所以在使用padding的时候，需要适当减小width或者height
+
+
+        
+        定位：position（简单粗暴）
+            1. absolute 绝对定位：想改变谁的位置，就给谁添加绝对定位
+                绝对定位的元素，如果要去找参照物，默认以已经定位的它的父集作为参照物
+            2. relative 相对定位：想以谁为参照物，就给谁添加相对定位。相对定位不会改变其位置，只会将其作为参照物而已
+            3. fixed 固定定位：以显示器本身为参照物
+            
+            问题：
+                绝对定位和固定定位，会脱离文档流(表面上可能在某个位置，但是实际上脱离了该位置)，
+                如果自己不想改变位置，只想作其他块的参照物，则使用相对定位，不要使用绝对定位
+
+
+        所以一般情况下，多使用margin和padding作页面布局，而鲜少使用position
+
+     -->
+    <div class="top"></div>
+    <!-- margin合并 -->
+    <div class="top2"></div>
+    <div class="bottom">
+        <!-- margin塌陷 -->
+        <div class="inner1"></div>
+    </div>
+    <div class="out1">
+        <div class="in2"></div>
+    </div>
+    <div class="out2">
+        <div class="in3">
+            <div class="in4"></div>
+        </div>
+    </div>
+</body>
+</html>

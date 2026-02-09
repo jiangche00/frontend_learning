@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Car</title>
+    <style>
+        .wrap{width: 800px; margin: 100px;}
+        .product{border: 1px solid; border-left: none; border-right: none; padding: 20px;}
+        .price{color: red;font-size: 20px;}
+        .pro_name{font-weight: bold;}
+        .total{margin-top: 200px;}
+        .deal{width: 80px; height: 30px;}
+        .act{background-color: #ed535f; color: #fff;}
+    </style>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="product">
+            <img class="sel un" src="unselect.png" alt="">
+            <span class="pro_name">iPhone</span>
+            <span class="price">$1500</span>
+            <button>-</button>
+            <span class="count">1</span>
+            <button>+</button>
+            <img class="delete" src="delete.png" alt="">
+        </div>
+        <div class="product">
+            <img class="sel un" src="unselect.png" alt="">
+            <span class="pro_name">PS5</span>
+            <span class="price">$500</span>
+            <button>-</button>
+            <span class="count">1</span>
+            <button>+</button>
+            <img class="delete" src="delete.png" alt="">
+        </div>
+        <div class="product">
+            <img class="sel un" src="unselect.png" alt="">
+            <span class="pro_name">SWITCH2</span>
+            <span class="price">$150</span>
+            <button>-</button>
+            <span class="count">1</span>
+            <button>+</button>
+            <img class="delete" src="delete.png" alt="">
+        </div>
+        <div class="product">
+            <img class="sel un" src="unselect.png" alt="">
+            <span class="pro_name">Potato Chips</span>
+            <span class="price">$5</span>
+            <button>-</button>
+            <span class="count">1</span>
+            <button>+</button>
+            <img class="delete" src="delete.png" alt="">
+        </div>
+        <div class="total">
+            <img src="unselect.png" alt="">
+            <span class="total_select">已选(0)</span>
+            <span class="total_price">$0.00</span>
+            <button class="deal" disabled>结算</button>
+        </div>
+    </div>
+    <script>
+        // 加减号功能
+        $(".product button").on("click", function(){
+            const sign = $(this).text();
+            const originNumber = Number($(this).siblings(".count").text());
+            if(sign === "+") {
+                $(this).siblings(".count").text(originNumber + 1);
+            } else if(sign === "-") {
+                if($(this).siblings(".count").text() != "1") { 
+                    $(this).siblings(".count").text(originNumber - 1);
+                }
+            }
+            totalPrice();
+        })
+        // 点击钩圈的事件
+        $(".sel").on("click", function(){
+            // 钩圈的切换
+            if($(this).hasClass("un")){
+                $(this).attr({
+                    "src": "select.png",
+                    "class": "sel al"
+                });
+            }else{
+                $(this).attr({
+                    "src": "unselect.png",
+                    "class": "sel un"
+                });                
+            }
+            changeButtonCSS();
+            totalCount();
+            totalPrice();
+        })
+        // 垃圾桶
+        $(".delete").on("click", function(){
+             $(this).parent().remove();
+             changeButtonCSS();
+             totalCount();
+             totalPrice();
+        })
+        // 全选功能
+        $(".total img").on("click", function(){
+            $(".sel").attr({
+                "src": $(".al").length === $("div .product").length?"unselect.png":"select.png",
+                "class": $(".al").length === $("div .product").length?"sel un":"sel al"
+            });
+            $(".total img").attr("src", $(".al").length === $("div .product").length?"select.png":"unselect.png");
+            $(".total_select").text($(".al").length === $("div .product").length?"全选":"已选(" + $(".al").length + ")");
+            changeButtonCSS();
+            totalPrice();
+        })
+        // 结算按钮
+        $(".total .deal").on("click", function(){
+            alert("总共消费: " + $(".total_price").text());
+            window.location.reload(true);
+        })
+        // 封装计算总价的函数，每类用他的单价乘以他的数量，把他们的每类总价求和
+        function totalPrice() {
+            var total = 0; // 总价
+            $(".al").each(function(){
+                const price = Number($(this).siblings(".price").text().substring(1));
+                const count = Number($(this).siblings(".count").text());
+                total += price * count;
+            })
+            $(".total_price").text("$"+total);
+        }
+        // 封装变更已选数量的函数
+        function totalCount() {
+            $(".total_select").text($(".al").length === $("div .product").length?"全选":"已选(" + $(".al").length + ")");
+            $(".total img").attr("src", $(".al").length === $("div .product").length?"select.png":"unselect.png");
+        }
+        // 封装结算按钮变更css样式的函数
+        function changeButtonCSS(){
+            $(".al").length != 0 ? $(".total .deal").removeAttr("disabled").addClass("act") : $(".total .deal").removeClass("act").prop("disabled", true);
+        }
+    </script>
+</body>
+</html>

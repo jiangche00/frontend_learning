@@ -1,0 +1,46 @@
+.out1{
+    width: 600px;
+    height: 75px;
+    background-color: rebeccapurple;
+    padding-left: 100px;
+    padding-top: 25px;
+    margin-bottom: 10px;
+}
+
+.in1{
+    width: 500px;
+    height: 50px;
+    background-color: white;
+}
+
+.out2 {
+    width: 700px;
+    height: 600px;
+    background-color: green;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.in21 {
+    width: 250px;
+    height: 500px;
+    background-color: pink;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+.in22 {
+    width: 250px;
+    height: 500px;
+    background-color: pink;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+}
+
+.out3 {
+    width: 700px;
+    height: 100px;
+    background-color: blue;
+}

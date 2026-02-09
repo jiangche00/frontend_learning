@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <!-- 
+        computed: 里面是函数,要求必须要有返回值
+
+        computed 和 methods 的区别
+            1. methods里面的函数不一定有返回值, computed里面定义的函数必须有返回值
+            2. methods里面的函数需要加括号调用, computed不用加括号调用
+            3. computed是基于缓存的,只有被依赖的数据发生变化才会调用, methods是只要数据视图里面有变化就会调用
+
+            4. computed正常情况下是没法传参的
+               但是可以tweak:
+                 利用原理: computed相当于将return的东西"填"到html模板里面
+                          既然如此,return的东西是一个接收参数的函数就行了比如如下:
+                            computed:{
+                                fun1(){
+                                    return (m)=>{console.log(m)};
+                                }
+                            }
+                            <h1>{{fun1(888)}}</h1>
+                          h1部分相填为了<h1>{{(m)=>{console.log(m)}}}</h1>
+                          也就变向实现了computed传参
+
+
+    -->
+    <div id="app">
+        <h1>{{message}}</h1>
+        <h1>{{genderCheck}}</h1>
+        <h1>{{fun1(888)}}</h1>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data:{
+                msg:"hello",
+                box:"title",
+                gender:0,
+            },
+            // 需要做计算的, 写在computed里面
+            computed:{
+                genderCheck(){
+                    return this.gender === 1 ? "man" : "woman";
+                },
+                message(){
+                   return this.msg[0].toUpperCase() + this.msg.substring(1); 
+                },
+                fun1(){
+                    return (m)=>{console.log(m)};
+                }
+            }
+        })
+    </script>
+</body>
+</html>

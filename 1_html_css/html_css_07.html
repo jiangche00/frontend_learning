@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 所有元素都有默认的margin和padding
+            因此在写代码之前，最好清除掉所有元素默认的padding和margin，如下所示
+        */
+        *{
+            margin: 0; padding: 0;
+        }
+
+        .box{
+            width: 500px; height: 500px; background-color: red;
+        }
+        /* 
+            margin: 0 auto; 让元素相对于父集而言，左右方向居中
+            如果要用margin auto的话，前提是该元素需要设置宽度width
+                因为如果不设置width，则宽度继承父集的width，既然和父集的宽度一样了，那剧中就没有意义了
+         */
+        .small{
+            width: 300px; height: 300px; background-color: blue; margin: 0 auto;
+        }
+
+        a{color: pink; text-decoration: none;}
+        /* 去掉li列表项默认样式, 添加一些其他的样式 */
+        /* 
+            text-align添加在ul上面也可以 
+            原因：
+                text-align属于文字样式，添加到ul上面之后，文字样式应用到所有ul的子集上，因此被应用到li的文字上了
+                应用到li上的文字之后，按text-align定义，让文字相对于他的父集块(li的文字的父集块就是li自己)居中
+        */
+        li{list-style: none; float: left; width: 120px; height: 50px; 
+            color: white; margin-right: 10px;
+            text-align: center; line-height: 50px;
+        }
+        .active{
+            background-color: orange;
+        }
+        ul{
+            background-color: #2b2b2b;
+            text-align: center;
+            width: 1200px;
+            margin: auto;
+        }
+        .warp{
+            background-color: #2b2b2b;
+        }
+        /* 
+            鼠标划过: 伪类,
+            鼠标划过的元素：hover{鼠标划过之后要更改样式}
+
+         */
+        li:hover{
+            background-color: aqua;
+            color: rebeccapurple
+        }
+        a:hover{
+            color: #2b2b2b;
+        }
+        .active:hover{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        元素/标签
+        块元素：
+            div 
+            h1,h2,h3,h4,h5,h6(写标题)
+            p(段落标签) 
+            ul li(一个ul里面套多个li， 一个列表里面套多个列表项) 相同样式的板块重复排列，要用列表
+                在实际项目中，导航条一般都用列表来做
+        内联元素：
+            span(用来写文字的)
+            a(也是用来写文字的，是超链接)
+
+        块元素和内联元素的区别：
+            1.块元素有宽高，内联元素没有宽高
+            2.块元素要独占1行，内联元素默认在一行上显示，除非父集装不下了才会换行
+
+
+        h标签专门用于写标题，不要在h标签里面套div
+
+        内联元素里面不允许包含块元素，内联元素里面只能放内联元素
+        块元素里面可以放任何元素
+
+        文字相关样式：
+        font-size:
+            设置文字大小. 最小不能低于12px，因为网页定义的最小字体就是12px. 默认大小是16px
+        color:
+            文字颜色
+        font-weight:
+            字体粗细
+        font-family:
+            字体
+
+        文字相关的样式都是可继承的,给标签加了文字样式，这个样式会应用于该标签以及该标签的所有子集
+        文字样式的继承遵循就近原则，如果该标签定义了样式，则使用该标签定义的样式
+        如果该标签没有定义样式，则向父集一级一级找最近的样式
+
+        a标签 天生自带样式(紫色，下划线)
+        如果要修改，需要添加标签样式进行覆盖，例如：
+            a{color: red; text-decoration: none}    改称字体红色, 不要下划线或者其他线
+        text-decoration 常用：
+            line-through: 中划线
+            overline: 上划线
+            ......
+            ......
+
+        text-align 文字对齐方式,让文字相对于他的父集块作水平居中
+
+        line-height 行高
+            当行高设置为和高度height一致时，就达到了垂直居中的效果
+    -->
+
+    <div class="box">
+        <div class="small"></div>
+    </div>
+    <span>hello</span>
+    <!-- target="_blank" 在新窗口中打开 -->
+    <a href="https://www.baidu.com" target="_blank">hello</a>
+    <!-- 引用相对路径 -->
+    <a href="demo.html" target="_blank">jump</a>
+    <h1 style="width: 100px; height: 100px; background-color: yellow;">title</h1>
+    <h2 style="font-size: 50px; font-family: 'Courier New', Courier, monospace;">title</h2>
+    <h3>title</h3>
+    <h4>title</h4>
+    <h5>title</h5>
+    <h6>title</h6>
+
+    <p>paragraph</p>
+    <!-- 一个单词是一个整体，所以如果没有空格的话，默认是一个单词，不换行，即使定义了宽度 -->
+    <p style="width: 100px; height: 100px; background-color: brown;">paragraphdfdfdfdfdfdfdfdfdfdf</p>
+
+    <div class="warp">
+        <ul>
+            <li class="active">
+                <a href="https://www.baidu.com" target="_blank">首页</a>
+            </li>
+            <li><a href="https://www.baidu.com" target="_blank">服务范围</a></li>
+            <li><a href="https://www.baidu.com" target="_blank">工程案例</a></li>
+            <li><a href="https://www.baidu.com" target="_blank">新闻动态</a></li>
+            <li><a href="https://www.baidu.com" target="_blank">关于我们</a></li>
+            <div style="clear: both;"></div>
+        </ul>
+    </div>
+
+</body>
+</html>

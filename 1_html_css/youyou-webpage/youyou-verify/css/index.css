@@ -1,0 +1,123 @@
+/* public */
+* {
+    margin: 0;
+    padding: 0;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+body {
+    background: url(../img/background.jpg) no-repeat center/cover fixed;
+}
+.w380 {
+    width: 380px;
+    margin: auto;
+}
+.w300 {
+    width: 300px;
+    margin: auto;
+}
+
+
+
+/* logo */
+.logo{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* verification panel */
+.verify_panel{
+    overflow: hidden;
+    height: 310px;
+    background-color: #fff;
+    border: #fff px solid;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: #666666 0px 0px 10px 0px;
+    margin-top: 10px;
+}
+.verify_input{
+    margin-top: 40px;
+}
+.input_box{
+    width: 300px;
+    height: 40px;
+    border: #cecece 1px solid;
+    border-radius: 4px;
+    background-color: transparent;
+}
+.prompt{
+    font-size: 14px;
+    color: #999999;
+    line-height: 40px;
+    margin-left: 13px;
+}
+.signup_btn{
+    width: 300px;
+    height: 40px;
+    background-color: #5696ff;
+    border: #5696ff 1px solid;
+    border-radius: 4px;
+    font-size: 18px;
+    color:#fff;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 18px;
+}
+.aggrement{
+    overflow: hidden;
+}
+.aggrement_prompt{
+    font-size: 12px;
+    color: #e2e2e2;
+    margin-top: 12px;
+}
+.dark{
+    color: #999999;
+}
+.split{
+    width: 380px;
+    border: #cecece 1px solid;
+    margin-top: 20px;
+}
+.sso_prompt{
+    font-size: 12px;
+    color: #999999;
+    margin-top: 14px;
+}
+.provider_wrap{
+    overflow: hidden;
+}
+.provider{
+    font-size: 12px;
+    color: #999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+    margin-top: 12px;
+}
+.login{
+    width: 160px;
+    height: 26px;
+    background-color: rgba(0, 0, 0, 20%);
+    border-radius: 8px;
+    font-size: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+.blue{
+    color: #5696ff;
+}

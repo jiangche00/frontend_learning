@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .bg{width: 500px;height: 500px; 
+            background: gray url(img/1.jpg) no-repeat center;
+            border: red 2px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        引入图片
+        1. 通过img标签
+            img标签虽然是内联元素， 但是比较特殊，img拥有宽高，像是内联块
+            img默认会保持等比缩放，即只设置宽，高也跟着变动，之设置高，宽也跟着变动
+            img默认底部对齐，多个img并列时，底部在同一个水平上
+            img的width属性设置图片的宽高 (也可以用style的height和width设置)
+
+            img的alt属性，是在图片还没加载出来之前，所显示的文字
+            img的title属性，当鼠标放在图片上时，鼠标边上显示出来的文字说明
+
+        2. 通过背景图的方式引入
+           background-image 引入图片的路径
+           background-repeat 当图片原始尺寸小于css设定的宽高时，禁止图片重复填充，而只显示1个图片
+           background-position 设置图片在div中的位置
+                background-position: 50px 离左边50px
+                background: center: 居中
+                background-position: 50px 50px 离左边50px，离上边50px
+                background-position: center, 50px 左右居中，离上边50px
+
+           简写：
+                background: url(img/1.jpg) no-repeat center;
+
+        使用场景：
+            1. 如果图片内部还有内容需要继续编辑，肯定选择背景图
+            2. 当要使用全屏效果图时，选择背景图
+
+    -->
+    <!-- <img src="img/winner_transparent_bg.jpg" alt="not found" title="this is a picture" width="200"> -->
+
+
+    <!-- 
+        描边属性 border: red 2px solid 红色粗细2像素实线
+        border-top, border-bottom, border-right, border-left
+
+        圆角: border-radius, 最大为高度宽度的1半，宽度等于高度，radius等于其一半时，画出来的是圆
+        中间空的圆圈：不添加background-color, 并给border添加color属性
+    -->
+
+    <div class="bg"></div>
+</body>
+</html>

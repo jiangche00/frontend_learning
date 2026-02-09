@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        #app3{overflow: hidden;}
+        .base{width: 120px; height: 50px; color: #333; float: left; text-align: center; line-height: 50px; margin-right: 2px;}
+        .act{background-color: #5696ff; color: #fff;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+
+            v-for 列表渲染
+                循环数组:
+                v-for定义的item只能在该元素内部(自身，或者子元素)，在其他的element里面没法用
+                支持2个参数迭代
+                    v-for="(item, index) in arr"
+                    第一个参数item是数组每一项,第二个参数index是数组角标
+
+                循环整数:
+                    v-for="i in 9"
+
+                循环对象:
+                    v-for="item in obj"
+                    v-for="(item,key) in obj" 值,key
+                    v-for="(item,key,index) in obj" 值,key,序号
+
+
+        
+        -->
+        <select name="" id="">
+            <option v-for="item in provinces">{{item}}</option>
+        </select>
+
+        <div v-for="(item, index) in arr">
+            <p>{{item}} -- {{index}}</p>
+        </div>
+
+        <div v-for="item in 10">{{item}}</div>
+
+        <!-- 
+            作业: 用vue做一个9*9乘法表 
+        -->
+        <div v-for="i in 9">
+            <div style="white-space: pre-wrap;">{{fn(i)}}</div>
+        </div>
+
+        <div v-for="(item,k,index) in obj" :key="item.id" :attr="item.id">{{item}} -- {{k}} -- {{index}}</div>
+        <div v-for="(item,k,index) in arr" :key="item+'_'+k">{{item}} -- {{k}} -- {{index}}</div>
+
+
+        <!-- 
+        
+当 Vue 正在更新使用 v-for 渲染的元素列表时，它默认使用“就地更新”的策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是就地更新每个元素，并且确保它们在每个索引位置正确渲染。这个类似 Vue 1.x 的 track-by="$index"。        
+这个默认的模式是高效的，但是只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出。
+为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key attribute：
+        
+<div v-for="item in items" v-bind:key="item.id">
+</div>
+
+建议尽可能在使用 v-for 时提供 key attribute，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升。
+因为它是 Vue 识别节点的一个通用机制，key 并不仅与 v-for 特别关联。后面我们将在指南中看到，它还具有其它用途。
+
+
+尽量不要使用索引值index作key值，一定要用唯一标识的值，如id等。因为若用数组索引index为
+key，当向数组中指定位置插入一个新元素后，因为这时候会重新更新index索引，对应着后面的
+虚拟DOM的key值全部更新了，这个时候还是会做不必要的更新，就像没有加key一样，因此
+index虽然能够解决key不冲突的问题，但是并不能解决复用的情况。如果是静态数据，用索引号
+index做key值是没有问题的。
+
+
+
+注意我们不推荐在同一元素上使用 v-if 和 v-for。更多细节可查阅风格指南
+当它们处于同一节点，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。当你只想为部分项渲染节点时，这种优先级的机制会十分有用，如下
+
+<li v-for="todo in todos" v-if="!todo.isComplete">
+  {{ todo }}
+</li>
+
+而如果你的目的是有条件地跳过循环的执行，那么可以将 v-if 置于外层元素 (或 <template>) 上。如：
+
+<ul v-if="todos.length">
+  <li v-for="todo in todos">
+    {{ todo }}
+  </li>
+</ul>
+<p v-else>No todos left!</p>
+
+使用template:  是一个容器，template在编译的时候不会被渲染为任何html标签
+v-if的值为true时，渲染template里面的li
+<template v-if="todos.length">
+  <li v-for="todo in todos">
+    {{ todo }}
+  </li>
+</template>
+<p v-else>No todos left!</p>
+
+用template使用v-if或者v-for包裹，不会有副作用，不会创建出包裹用的div之类的多余元素
+ -->
+
+
+
+
+
+<!-- 
+
+由于 JavaScript 的限制，Vue 不能检测数组和对象的变化
+Vue 不能检测以下数组的变动：
+
+    当你利用索引直接设置一个数组项时，例如：vm.items[indexOfItem] = newValue
+    当你修改数组的长度时，例如：vm.items.length = newLength
+
+var vm = new Vue({
+  data: {
+    items: ['a', 'b', 'c']
+  }
+})
+vm.items[1] = 'x' // 不是响应性的
+vm.items.length = 2 // 不是响应性的
+
+在vue里面修改数组某一项的方法:
+1. Vue.set(vm.items, indexOfItem, newValue)
+2. 数组整体重新赋值
+    比如原来的data部分定义的arr: [1,2,3,4]
+    要改第一项为5,则函数里面重新赋值整个数组如下:
+        arr = [5,2,3,4]
+工作中实际上第2种方法用的最多，因为实际工作中数据往往是动态后端返回的
+工作中，在前端这边一般是定义一个空数组，然后接后端返回的数据
+第一种方法几乎不用
+
+vue对数组自带的方法进行了处理，进行了包裹。用数组自带的方法也可以触发视图更新
+    push pop shift unshift splice sort reverse, .....
+
+
+如何在对象里新增属性:
+    1. Vue.set(要修改的对象名,属性名，新的属性值)
+    2. 对象整体替换掉
+-->
+
+        <template v-for="(item,key) in provinces" :key="item+'_'+key">
+            <p>{{item}}</p>
+        </template>
+        <button @click="add">添加元素</button>
+
+    </div>
+
+    <div id="app3">
+        <template v-for="(item,index) in list" :key="index+'_'+item">
+            <div class="base" :class="{act: index === activeIndex}" @click="setActive(index)">{{item}}</div>
+        </template>
+    </div>
+
+    <script>
+        const myapp = new Vue({
+            el: "#app",
+            data: {
+                provinces: ["山东","浙江","江苏","广东"],
+                arr: ["a1", "a2", "a3", "a4"],
+                obj:[{
+                    id: 1,
+                    name:"小明",
+                    age: 18,
+                    gender: "boy",
+                }],
+            },
+            methods: {
+                fn(i){
+                    let result = ""
+                    for(let j = 1; j <= i; j++){
+                        result += i + "x" + j + "=" + i*j + "    ";
+                    }
+                    return result;
+                },
+                add() {
+                    Vue.set(this.provinces, 0, "e") //改provinces的第一项为e
+                }
+            }
+        })
+
+
+        const myapp2 = new Vue({
+            el: "#app2",
+            data: {
+                obj: {
+                    name:"小明",
+                    age: 18,
+                    gender: "boy",
+                    arr:{
+                        a: "123",
+                        b: "456"
+                    }
+                }
+            },
+            methods:{
+                add(){
+                    // vue里面加入了针对对象的深度监听
+                    // 直接如下方式修改对象属性是ok的
+                    this.obj.arr.a = "666";
+                },
+                add2(){
+                    // 如下方式直接添加属性，默认是不响应的，所以不能这样添加元素
+                    this.obj.salary = 1000;
+                }
+            }
+        })
+
+        const myapp3 = new Vue({
+            el: "#app3",
+            data: {
+                list:["首页","特惠","资讯","游记","我的"],
+                activeIndex: -1,
+            },
+            methods: {
+                setActive(index) {
+                    this.activeIndex = index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            width: 500px; 
+            height: 500px; 
+            background-color: red;
+            /* 顶在左边排 */
+            float: left;
+            /* 顶在右边排 */
+            /* float: right; */
+        }
+        .blue{
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+            float: left;
+        }
+        .yellow{
+            width: 700px;
+            height: 700px;
+            background-color: yellow;
+        }
+        .pink{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            float: left;
+        }
+        .green{
+            width: 500px;
+            height: 500px;
+            background-color: green;
+            float: right;
+        }
+        .box{
+            width: 1100px;
+            height: 550px;
+            padding-left: 50px;
+            padding-top: 50px;
+            padding-right: 50px;
+            background-color: gray;
+            margin-bottom: 20px;
+        }
+        .box2{width: 1200px; background-color: gray;}
+        .pink2{width: 500px; height: 500px; background-color: pink; float: left;}
+        .green2{width: 500px; height: 500px; background-color: green; float: right;}
+        .clear{clear: both;}
+    </style>
+</head>
+<body>
+    <!-- 
+        浮动：可以让块元素在一行上显示
+        float: left/right
+        希望哪几个块在一行上显示，就给哪几个元素加浮动
+
+        浮动的块效果是立体的浮在非浮动块的上面，可能会将非浮动的块遮盖住
+        所以浮动和position一样，也会脱离文档流
+
+        但是，半脱离，因为非浮动的块的文字会环绕在浮动块的周围，而并不是被浮动的块所遮盖
+
+        浮动是以父集为参照
+
+        如果要清除前面的浮动效果，可以添加一个空的dev，设置style为clear: both
+        <div style="clear: both;"></div>
+        该div需要和浮动的块保持同级才能生效
+    -->
+    <div class="red"></div>
+    <div class="blue"></div>
+    <div class="yellow">hello,环绕在浮动块周围i</div>
+    <div class="box">
+        <div class="pink"></div>
+        <div class="green"></div>
+    </div>
+
+    <!-- 
+        注意下面的例子，
+        父集的box2,没有设置height，所以其height默认取子集的height
+        但由于所有子集设置了浮动，因此脱离了文档流，造成父集无法取到子集的height
+        所以此时需要在子集的同级上添加一个清除浮动的div，让父集能够取到子集的height    
+    -->
+    <div class="box2">
+        <div class="pink2"></div>
+        <div class="green2"></div>
+        <div class="green2"></div>
+        <div class="clear"></div>
+    </div>
+
+
+    <!-- 
+        画块原则：
+        1. 从大到小逐级划分
+        2. 同级元素不允许即在同一行上又在同一列上
+        3. 依据2,clear元素永远不可能作为中间元素出现
+        4. 符合常识，符合认知 
+    -->
+</body>
+</html>

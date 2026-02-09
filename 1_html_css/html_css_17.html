@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .big{height: 100px; width: 100px; background-color: #ff0000; overflow: hidden;}
+        .small{height: 500px; width: 80px; background-color: #0000ff;}
+        .o_auto{overflow: auto;}
+    </style>
+</head>
+<body>
+    <!--
+        默认宽高
+            默认宽度：父极的100%，前提：浮动元素除外，position的元素，（脱离文档流的元素）
+            默认高度：由子集+padding决定
+
+            浮动元素的宽度由子集决定，position元素的高度由子集决定
+
+
+
+        清除浮动的方式
+            clear: both
+            overflow:hidden 子集超过父集的部分，不予显示(溢出隐藏)
+            overflow:auto子集超过父集，会多一个滚动条在侧边
+     -->
+
+
+
+     <div style="width: 100px; border: #ff0000 1px solid; box-sizing: border-box;"></div>
+
+     <div class="big">
+        <div class="small"></div>
+        <!-- 子集超过父集的部分，不占位置 -->
+     </div>
+     <p>hello</p>
+
+    <div class="big o_auto">
+        <div class="small"></div>
+        <!-- 子集超过父集的部分，不占位置 -->
+     </div>
+</body>
+</html>

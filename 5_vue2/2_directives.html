@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_directives</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+<!-- 
+            特殊的绑定：
+                class的绑定：
+                    1. 绑定字符串
+                        v-bind:class="a"
+                        Vue的data部分: a: "title" 即 class="title"
+                    2. 绑定数组
+                        v-bind:class="b"
+                        Vue的data部分: b: ["title", "front-page"] 即 class="title front-page"
+                    3. 绑定对象
+                        v-bind:class="a"
+                        Vue的data部分: 
+                            a: {
+                                aa: true,
+                                bb: false,
+                                cc: true,
+                                ...
+                            }
+                        属性名aa,bb,cc随意，但是值只能是boolean，上述例子是将aa cc绑给class相当于 class="aa cc"
+                因为实际上一个元素会有多个class
+                
+                style的绑定：
+                    绑定样式字符串
+                        css: "backgroundColor:blue; font-size: 20px; color: white"
+                        <div v-bind:class="b" v-bind:style="css">hello</div>
+
+                        v-bind:style="{width:'100px', height:'100px', backgroundColor:'green'}"
+                    绑定对象
+                        obj: {
+                            height: "200px",
+                            width: "200px",
+                            backgroundColor: "red"
+                        },
+                        <div v-bind:class="a" v-bind:style="obj"></div>
+                    绑定数组,数组里存放若干个样式对象
+                        arr:[
+                            {height: "300px"},
+                            {width: "300px", backgroundColor: "pink"},
+                        ],
+                        <div class="ddd" v-bind:class="[a,b]" v-bind:style="arr"></div>
+
+
+                
+                事件的绑定 v-on: 事件名="函数名" 函数定义在Vue类的methods里面
+                    methods:{
+                        fn(){
+                            alert(1);
+                        },
+                        fn2(){
+                            alert(2);
+                        }
+                    }
+                    如果在函数中要使用事件对象:
+                        fn3(e){
+                            console.log(e);
+                        }
+                    如果在函数中既要使用事件对象又要使用传递参数
+                        方法1： 用event关键字 (不推荐用)
+                        fn4(e,m){
+                            console.log(e);
+                            console.log(m);
+                        }
+                        <button v-on:click="fn4(event, 6)">button3</button>
+
+                        方法2：函数套用的方式(推荐使用)
+                        fn4(e,m){
+                            console.log(e);
+                            console.log(m);
+                        }
+                        函数第一个参数默认是事件对象，外层函数包起来之后将事件对象传到内层函数
+                        <button v-on:click="(e)=>{fn4(e,6)}">button3</button>
+
+-->
+        <div v-bind:class="a" v-bind:style="obj"></div>
+        <a v-bind:href="loc">redirect</a>
+        <div v-bind:class="b" v-bind:style="css">hello</div>
+        <div class="ccc" v-bind:class="[a,b]" v-bind:style="{width:'100px', height:'100px', backgroundColor:'green'}"></div>
+        <div class="ddd" v-bind:class="[a,b]" v-bind:style="{width:'100px', height:'100px', [aaa]:bg}"></div>
+        <div class="ddd" v-bind:class="[a,b]" v-bind:style="[obj, ...arr]"></div>
+        <div class="e">
+            <button v-on:click="fn2">button</button>
+            <input v-on:blur="fn">
+            <button v-on:click="fn3">button2</button>
+            <button v-on:click="fn4(event, 6)">button3</button>
+            <button v-on:click="(e)=>{fn4(e,6)}">button3</button>
+            <!-- msg在vue实例里面是hello, 但点击事件里面也可以函数而是直接做数据处理,将msg改为 你好-->
+            <button v-on:click="msg='你好'">{{msg}}</button>
+        </div>
+    </div>
+    <script>
+        const myapp = new Vue({
+            el: "#app",
+            data:{
+                msg: "hello",
+                a: "box",
+                loc: "https://www.baidu.com",
+                b: {
+                    aa: true,
+                    bb: false,
+                    cc: true
+                },
+                obj: {
+                    height: "200px",
+                    width: "200px",
+                    backgroundColor: "red"
+                },
+                css: "backgroundColor:blue; font-size: 20px; color: white",
+                bg: "purple",
+                aaa: "backgroundColor", // 作为属性名在html使用时，套中括号
+                arr:[
+                    {height: "300px"},
+                    {width: "300px", backgroundColor: "pink"},
+                ],
+            },
+            methods:{
+                fn(){
+                    alert(1);
+                },
+                fn2(){
+                    alert(2);
+                },
+                fn3(e){
+                    console.log(e);
+                },
+                fn4(e,m){
+                    console.log(e);
+                    console.log(m);
+                },
+                fn5(){
+                    // this.数据名 拿到data里面定义的变量
+                    this.msg="你好";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

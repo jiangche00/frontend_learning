@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1. call apply bind 用来改变this指向 (面试时候经常会问)
+                方法.call(对象, 参数1, 参数2, ...) 我想调用别人的方法
+                方法.applys(对象, [参数1, 参数2, 参数3, ...])
+
+                方法.bind(对象, 参数1, 参数2, ...) 返回一个函数，但是并不直接调用
+
+            
+            2. new关键字的实现原理
+                (1). 创建1个空对象，取出构造函数和参数
+                (2). 修改原型
+                (3). 改变this指向
+                (4). 返回对象
+
+            3. instanceof: 用于区分对象
+                子对象 instanceof 父对象
+
+            4. 递归: 函数自己调用自己
+
+            5. 深复制: 
+                (1). JSON.parse(), JSON.stringify()
+                    弊端：处理不料日期对象
+                (2). 递归实现深复制
+
+        */
+       var obj1 = {
+            name: "zhangsan",
+            age: 18,
+            intr: function(){
+                console.log("i am obj1 " + this.name + " , " + this.age) // 谁调用，this指向谁
+            }
+       }
+       var obj2 = {
+            name: "lisi",
+            age: 28,
+            intr: function(){
+                console.log("i am obj2 " + this.name + " , " + this.age)
+            },
+            dance: function(m, n) {
+                console.log(this.name + " can dance, " + m + " " + n)
+            }
+       }
+       obj1.intr();
+       obj2.intr();
+       obj2.intr.call(obj1); // 让obj1调用obj2的方法，这时，obj2里面的this指向obj1, 所以输出为i am obj2 zhangsan, 18
+       obj2.dance.call(obj1, 100, 200); // 让obj1调用自己本身没有的dance方法
+       obj2.dance.apply(obj1, [100, 200]); //和call类似只不过传参是用数组方式传
+       fn = obj2.dance.bind(obj1, 100, 200); // 返回函数对象，但是不直接调用
+       fn();
+
+
+
+
+
+
+    function Student(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // 自己封装一个new函数
+    function _new() {
+        var obj={};
+        // 取出所有形参
+        var params = Array.prototype.slice.call(arguments, 1);
+        // 取出构造函数
+        var fn = arguments[0];
+
+        // obj的原型指向fn的原型
+        obj.__proto__ = fn.prototype;
+        // obj的原型的构造函数指向fn
+        obj.__proto__.constructor = fn;
+
+        //修改this指向,让obj运行按参数来运行构造函数
+        fn.apply(obj, params);
+
+        return obj;
+    }
+
+    var ll = _new(Student, "lilei", "18");
+    console.log(ll);
+
+    // 自己封装一个instanceof函数
+    function _instanceof(child, parent) {
+        var left = child.__proto__;
+        var right = parent.prototype;
+
+        while(true) {
+            if (left === null) {
+                return false;
+            }
+            if (left === right) {
+                return true;
+            }
+            left = left.__proto__; // 如果left不等于right，则用left的父集和right比，如果还不相等则用left的父集的父集，以此在原型链上向上找
+        }
+    }
+    console.log(_instanceof(new Date(), Array));
+    console.log(_instanceof(new Date(), Date));
+    console.log(_instanceof([], Object));
+
+
+    // 通过递归实现深复制
+    function deepClone(obj){
+        // 如果obj是一个数组，obj2初始化为数组,否则obj2初始化为object
+        var obj2=obj instanceof Array?[]:{};
+        // 如果obj不是null且obj的type为object
+        if(obj&&typeof(obj)==="object"){
+            for(var key in obj) {
+                // 如果是自己的属性而非父类继承的，才进行复制
+                if(obj.hasOwnProperty(key)){
+                    // 当前这项依然是对象，进行递归
+                    // 如果不是null，且是对象，且该对象并非日期类型
+                    // 日期类型很特殊，不能用 for in 循环进行遍历
+                    // 所以针对Date类型，直接进行对象拷贝
+                    if(obj&&typeof(obj[key])==="object"&&(!(obj[key] instanceof Date))){
+                        obj2[key]=deepClone(obj[key]);
+                    } else {
+                        //如果当前这项的值不是对象，进行复制
+                        obj2[key]=obj[key];
+                    }
+                }
+            }
+        }
+        return obj2;
+    }
+
+    // for in 循环不仅遍历对象的自有属性，继承的属性也会遍历
+    Student.prototype.car="bmw";
+    var lll = new Student("lll", "11");
+    for(var key in lll) {
+        console.log(key); // "lll", "11", "bmw"
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* public */
+* {
+    margin: 0;
+    padding: 0;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+body {
+    background: url(../img/background.jpg) no-repeat center/cover fixed;
+}
+.w380 {
+    width: 380px;
+    margin: auto;
+}
+.w300 {
+    width: 300px;
+    margin: auto;
+}
+.mgn_tp12{
+    margin-top: 12px;
+}
+.mgn_tp18{
+    margin-top: 18px;
+}
+
+/* logo */
+.logo{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* login panel */
+.login_panel{
+    overflow: hidden;
+    height: 380px;
+    background-color: #fff;
+    border: #fff px solid;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: #666666 0px 0px 10px 0px;
+    margin-top: 10px;
+}
+.login_input{
+    margin-top: 49px;
+}
+
+.input_box{
+    width: 300px;
+    height: 40px;
+    border: #cecece 1px solid;
+    border-radius: 4px;
+    background-color: transparent;
+}
+.prompt{
+    font-size: 14px;
+    color: #999999;
+    line-height: 40px;
+    margin-left: 13px;
+}
+.forgot_password{
+    overflow: hidden;
+}
+.forgot_prompt{
+    font-size: 12px;
+    color: #5696ff;
+}
+.login_btn{
+    width: 300px;
+    height: 40px;
+    background-color: #5696ff;
+    border: #5696ff 1px solid;
+    border-radius: 4px;
+    font-size: 18px;
+    color:#fff;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 12px;
+}
+.split{
+    width: 380px;
+    border: #cecece 1px solid;
+    margin-top: 30px;
+}
+.sso_prompt{
+    font-size: 12px;
+    color: #999999;
+    margin-top: 14px;
+}
+.provider_wrap{
+    overflow: hidden;
+}
+.provider{
+    font-size: 12px;
+    color: #999999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+    margin-top: 12px;
+}
+.sign_up{
+    width: 160px;
+    height: 26px;
+    background-color: rgba(0, 0, 0, 20%);
+    border-radius: 8px;
+    font-size: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+.blue{
+    color: #5696ff;
+}

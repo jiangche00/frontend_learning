@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_helloworld</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app" v-html="msg">
+        <!-- 
+            插值表达式 双大括号{{}}里面写js表达式（语句不行，表达式可以），vue定义的变量
+            插值表达式不识别标签,类似<h1></h1>这种会被当作普通字符串 
+         -->
+        {{ message }}
+         <!-- 指令 格式: v-指令名="" 引号代表的是提供一个js执行环境
+            1. v-html="" 把引号里面的内容渲染到元素内部，可以识别标签
+            2. v-text="" 把引号里面的内容渲染到元素内部，不识别标签，基本上等同于插值表达式
+            3. v-bind:属性名="" 动态绑定属性
+                核心观念：谁要改变，就将谁用指令绑上
+
+            特殊的绑定：
+                class的绑定：
+                    1. 绑定字符串
+                        v-bind:class="a"
+                        Vue的data部分: a: "title" 即 class="title"
+                    2. 绑定数组
+                        v-bind:class="b"
+                        Vue的data部分: b: ["title", "front-page"] 即 class="title front-page"
+                    3. 绑定对象
+                        v-bind:class="a"
+                        Vue的data部分: 
+                            a: {
+                                aa: true,
+                                bb: false,
+                                cc: true,
+                                ...
+                            }
+                        属性名aa,bb,cc随意，但是值只能是boolean，上述例子是将aa cc绑给class相当于 class="aa cc"
+                因为实际上一个元素会有多个class
+          -->
+    </div>
+    <div id="app2">
+        <!-- 用v-bind 将a赋值给id，a在Vue类里面定义为“box”, 因此这里的id成为了box -->
+        <div v-bind:id="a"></div>
+        <img v-bind:src="url"> 
+        <a v-bind:href="redirect">redirect</a>
+        <div v-bind:class="b"></div>
+        <!-- 传统的class写法和v-bind:class能一起用 -->
+        <div v-bind:class="c" class="dd"></div> 
+        <!-- 还能用[]括起来，然后[]里面还能新加比如下面那个'nav'就是新加的
+            实际上效果就是 class="box aa cc nav"
+          -->
+        <div v-bind:class="[a, c, 'nav']"></div>
+    </div>
+    <script>
+        /*
+        Vue框架的特点:
+            数据与视图分离
+        对比jQuery: jQuery的dom操作多，性能差，性能瓶颈多
+
+        Vue优点：
+            1. 基本没有Dom操作
+            2. 数据驱动视图
+            3. 组件化(封装了一段html+css+js的代码)
+            4. diff算法
+        */
+        const app = new Vue({
+        el: '#app', //el设定挂载点，用css选择器的方式来选择html元素。把Vue实例应用于被选择的元素里面
+        data: { //data里面专门存放数据
+            message: 'Hello Vue!',
+            msg:"<h1>header1</h1>",
+        }
+        })
+
+        const app2 = new Vue({
+            el: '#app2',
+            data: {
+                a: "box",
+                url:"1.jpg",
+                redirect: "https://www.baidu.com",
+                b: ["type1", "type2"],
+                c: {
+                    aa: true,
+                    bb: false,
+                    cc: true
+                },
+            }
+        })
+    </script>
+</body>
+</html>

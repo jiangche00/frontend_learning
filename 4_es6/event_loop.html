@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // /*
+        //     先执行整体js，然后清空当前轮的微任务队列，然后开始第二轮宏任务
+        // */
+        // console.log("start"); //1 整体js (第一轮执行)
+        // setTimeout(()=>{
+        //     console.log("setTimeout"); //4 放宏任务队列 (第二轮执行)
+        // }, 0)
+        // new Promise((resolve,reject)=>{resolve()}).then(()=>{
+        //     console.log("promise"); //3 有then，放到微任务队列 (第一轮清空微任务队列)
+        // })
+        // console.log("over") //2 整体js (第一轮执行)
+
+        /**/
+        console.log(1); //1 整体js (第一轮执行)
+        setTimeout(()=>{ // 放宏任务队列
+            console.log(2); // 4 第二轮宏任务执行
+        },0)
+        new Promise((resolve)=>{
+            console.log(3); //2 整体js (第一轮执行)
+            resolve();
+        }).then(()=>{ // 放到微任务队列
+            console.log(4); // 3 第一轮清空微任务队列时执行
+            setTimeout(function(){ // 放到宏任务队列
+                console.log(5); // 5 第二轮宏任务执行
+            },0)
+        })
+    </script>
+</body>
+</html>

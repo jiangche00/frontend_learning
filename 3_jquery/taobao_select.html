@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taobao Select</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+        .wrap{width: 800px; margin: auto; margin-top: 100px;}
+        .wrap>div{margin-bottom: 10px;}
+        .wrap>div>p{margin-top: 5px;}
+        .coat,.pants,.dress,.selected{overflow: hidden;}
+        .type,.tag,.tips{float: left; overflow: hidden;}
+        .tag li{float: left; padding: 5px 15px; margin-right: 5px; color: #003399; border-radius: 2px;}
+        li:hover{color: #f60; background-color: #f3edc2;}
+        .tag .act{background-color: #ff6600; color: #fff;}
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="coat">
+            <p class="type">上装:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <ul class="tag">
+                <li class="all act">全部</li>
+                <li>针织杉</li>
+                <li>毛泥外套</li>
+                <li>T恤</li>
+                <li>羽绒服</li>
+                <li>棉衣</li>
+            </ul>
+        </div>
+        <div class="pants">
+            <p class="type">裤装:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <ul class="tag">
+                <li class="all act">全部</li>
+                <li>牛仔裤</li>
+                <li>小脚/铅笔裤</li>
+                <li>休闲裤</li>
+                <li>打底库</li>
+                <li>哈伦库</li>
+            </ul>
+        </div>
+        <div class="dress">
+            <p class="type">裙装:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <ul class="tag">
+                <li class="all act">全部</li>
+                <li>连衣裙</li>
+                <li>半身裙</li>
+                <li>长袖连衣裙</li>
+                <li>中长宽连衣裙</li>
+            </ul>
+        </div>
+        <div class="selected">
+            <p class="type">已选条件:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p class="tips">暂时没有选择过滤条件</p>
+            <ul class="tag">
+            </ul>
+        </div>
+    </div>
+    <script>
+        const toggleTips=()=>{
+            if($(".selected li").length) {
+                $(".tips").hide()
+            } else {
+                $(".tips").show()
+            }
+        }
+        $("li").not(".all").on("click", function(){
+            //点击元素高亮
+            $(this).addClass("act").siblings("li").removeClass("act");
+            //将选中项加入已选条件里面
+            const txt = $(this).text();
+            const parName = $(this).parent().parent().attr("class");
+            //如果所属系列在 已选条件 里面没有，添加。如果所属系列在 已选条件 中已经存在，找到之后只变更文本
+            if($(".selected ."+parName).length) {
+                $(".selected ."+parName).text(txt);
+            } else {
+                $(".selected .tag").append("<li class='act " + parName + "'>" + txt + "</li>");
+            }
+            // 没有选中时的提示文字
+            toggleTips();
+        })
+
+        //点击 全部
+        $(".all").on("click", function(){
+            const parName = $(this).parent().parent().attr("class");
+            $(".selected ."+parName).remove();
+            // 全部 高亮
+            $(this).addClass("act").siblings("li").removeClass("act");
+            // 没有选中时的提示文字
+            toggleTips();
+        })
+
+        // 点击 已选条件 里面的项目，从中删除。因为页面刚加载的时候，已选条件里面什么都没有，所以为了给未来可能出现的元素绑定事件，需要使用事件代理
+        // 给selected里面的li标签进行事件代理
+        $(".selected").on("click", "li", function(){
+            $(this).remove();
+            const cla = $(this).attr("class");
+            const ncla = cla.split(" ")[1];
+            $(".wrap>."+ncla).find(".all").addClass("act").siblings("li").removeClass("act");
+            toggleTips();
+        })
+    </script>
+</body>
+</html>

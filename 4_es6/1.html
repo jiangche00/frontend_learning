@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        /*
+            1. 变量声明
+                let关键字声明变量
+                    1. 没有变量提升
+                    2. 不允许重复变量
+                    3. 只在块级作用域内有效 {}
+                    4. 暂时性死区： 在一个块及作用域内如果存在let声明的变量，那么该变量自动绑定当前作用域
+                        if(true){
+                            tmp = 'abc';
+                            let tmp; // 这里声明了tmp变量。在if块里面无论顺序前后，就只能有这一个tmp
+                        }
+            2. 变量的解构赋值 let [变量名数组] = [值数组]
+            3. 字符串扩展 模板字符串 ``
+                支持换行 支持直接写变量 ${}相当于提供了js执行环境，里面允许写变量或者表达式
+            4. 函数的扩展
+                (1). 函数的默认参数 直接对参数赋值即可
+                (2). ...形式 剩余参数数组
+                (3). 箭头函数
+                        只有一个参数的情况下，参数括号可以省略。其他情况下括号不能省略
+                        如果函数仅仅是返回一个值，那么可以省略大括号和return关键字
+                        箭头函数内部的this指向是固定的，箭头函数中的this指向的是定义时所在的对象，即箭头函数没有自己的this
+                            (普通函数谁调用，this指向谁)
+                        不可以当作构造函数
+
+            5. 数组的扩展
+                ...扩展运算符,可以拆数组，拆字符串, 拆对象
+
+            6. 对象的扩展
+                对象的属性值是变量，且变量的名字跟属性名同名，可以省略为1个
+                如果属性是函数那么可以省略 function
+                对象的解构赋值
+
+            7. Symbol 是一种数据类型 string number boolean undefined null symbol
+                类似于字符串，但是他的值是独一无二的
+
+            8. Set: 集合，set中的值都是独一无二的
+                接收数组当参数，初始化
+                size 返回成员个数
+                add(value) 添加成员,可以链式调用 add(val1).add(val2)
+                delete(value) 删除
+                has(value) 是否存在
+                clear() 清除所有成员
+                keys() 返回所有value
+                values() 返回所有alue
+                entries() 返回所有key-value类似的
+                forEach(function) 遍历
+
+            9. Map
+
+            10. Promise
+                异步编程 顺序不可控制
+                解决方式
+                    (1) 回调函数
+                    (2) promise
+                            接收一个函数当参数, 函数有2个参数: resolve, reject
+                        promise的状态：
+                            pending fulfilled rejected
+                        promise对象有一个then()方法，等promise的状态变为fulfilled或者rejected之后，再执行then
+                            then() 接收2个参数，都是函数，分别是resolve()之后的处理函数 和 reject()之后的处理函数
+                            then() 方法的返回值是一个新的promise实例(和之前的promise无关), 所以then()方法可以链式调用
+                        resolve() 设定promise状态为fulfilled
+                        reject() 设定promise状态为rejected
+
+                        promise的错误如果不捕获，会一直向下传递，传到之后的then()
+                        用catch()来捕获错误
+
+                        promise.all([])值是个数组，存的是每个promise resolve的数据
+                        promise.race([]) 当第一个完成的promise结束后就会走then
+
+                        实际上Promise里面的代码是同步的，只有then()部分是异步的
+
+            11. async await
+                async函数和Promise类似，返回的是一个Promise对象
+                async函数永远有返回值，没手动return时默认会返回Promise对象，手动return的话，return的值就是Promise resolve的结果
+                await中断代码运行，直到他所等的内容有了结果才会继续往下运行
+                await后面是表达式
+                await等待的是Promise对象
+
+            12. 事件循环(event loop):js的一种运行机制，用于处理异步操作
+                js运行机制: 从上往下顺序执行
+                事件循环通过维护一个任务队列来处理异步操作
+                任务队列(先进先出)：宏任务 和 微任务
+                    宏任务: 整体的js setTimeout setInterval
+                    微任务: then
+                每轮宏人物执行的时候，必须清空当轮微任务，才能进行下一个宏任务
+                事件循环的执行顺序
+                    1. 执行当前宏人物
+                    2. 检查微任务队列是否清空，如果没有清空，那么按照条件顺序依次执行，直到任务列表被清空
+                    3. 从宏任务队列中取出下一个宏任务，执行它(2, 3循环)
+        */
+       const box = document.getElementById("box");
+       const a = "title";
+       box.innerHTML = `
+       <div class=${a}>
+        <div>
+            <p>aaaaa</p>
+        </div>
+       </div>
+       `;
+       function fn(a=5, b=6){
+            console.log(a, b);
+       }
+       fn(8); // 打印 8 6
+       function fn2(a, ...b){
+            console.log(b);
+       }
+       fn2(1,2,3,4,5,6); // 打印[2,3,4,5,6]
+       const fn3=m=>m;
+       const f31=()=>{
+            return "dd";
+       }
+       var aa = [1, 2, 3];
+       console.log(...aa); // 拆成3个元素1 2 3
+       
+       let obj={name:"xiaoming", age:18};
+       let nobj={hobby:"yinyue", ...obj}; // {hobby:"yinyue", name:"xiaoming", age:18}
+       console.log(nobj);
+
+
+        let birth = '2000/01/01';
+        const Person = {
+            name: '张三',
+            //等同于birth: birth
+            birth,
+            // 等同于hello: function ()...
+            hello() { console.log('我的名字是', this.name); }
+        };
+
+        // 解构赋值
+        let obj2={
+            name:"name",
+            age:18,
+            hobby:"hobby"
+        }
+        let {name, age} = obj;
+
+        // Symbol对象
+        let asymbol = Symbol();
+        console.log(asymbol);
+        let objsymbol={
+            [asymbol]: "xiaoming",
+            age: 18
+        }
+        console.log(objsymbol[asymbol]);
+
+        // Set集合
+        let setEmpty = new Set();
+        let set = new Set([1,2,3,4,2,1,3,true,"xiaoming"]); // 自动去掉重复
+        console.log(set);
+        // 可以使用set对数组进行去重
+        let set2 = [...new Set([1,2,3,4,1,2,3,true])];
+        console.log(set2);
+
+        // promise
+        let promise = new Promise((resolve,reject)=>{
+            //异步代码
+            setTimeout(()=>{
+                console.log(1);
+                resolve(); // 设定为fulfilled状态
+            }, 2000);
+        })
+        promise.then(()=>{
+            console.log("after resolve()");
+        },()=>{r
+            console.log("after reject()");
+        })
+
+        // 使用链式调用控制
+        let promise2 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log(1);
+                resolve();
+            }, 3000);
+        })
+        promise2.then(()=>{
+            // 返回一个新的Promise对象，目的是为了使用resolve()
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log(2);
+                    resolve(); // 这里调用resolve，控制后面的then的执行，虽然这个resolve()和后面的then()属于不同的对象但是无所谓因为resolve()就是能阻塞then()
+                }, 2000);
+            })
+        }).then(()=>{
+            setTimeout(()=>console.log(3), 1000);
+        })
+
+        let p1 = new Promise((resolve, reject)=>{resolve("p1 success")});
+        let p2 = new Promise((resolve, reject)=>{resolve("p2 success")});
+        let p3 = new Promise((resolve, reject)=>{resolve("p3 success")});
+        // 都resolve了，才能走到Promise.all
+        Promise.all([p1,p2,p3]).then((res)=>{
+            console.log("res", res);
+        })
+
+        let p4 = new Promise((resolve, reject)=>{resolve("p4 success")});
+        let p5 = new Promise((resolve, reject)=>{reject("p5 failure")});
+        let p6 = new Promise((resolve, reject)=>{resolve("p6 success")});
+        // 有1个reject了，
+        Promise.all([p4,p5,p6]).then((res)=>{
+            console.log("res", res);
+        }).catch((err)=>{
+            console.log("reserr", err);
+        })
+
+        // async声明异步函数
+        async function afn() {
+            console.log("afn " + 1);
+        }
+        afn();
+        // 异步箭头函数
+        const afn1 = async () => {return "hello";}
+        // async的返回值用then来拿
+        afn1().then((res)=>{
+            console.log("afn1 + " + res);
+        })
+
+        // await
+        let pa = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                console.log(2);
+                resolve('pa success');
+            })
+        })
+        // 虽然下面这个afn2和上面的pa都是异步的，但是await产生了一种异步操作间的等待的前后效果
+        async function afn2(){
+            const a = await pa; // await等待pa resolve之后，再执行后面的操作
+            console.log(1);
+        }
+    </script>
+</body>
+</html>

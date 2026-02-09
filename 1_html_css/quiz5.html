@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        .clear{clear: both;}
+        .fl{float: left; margin-left: 25px;}
+        .fr{float: right;}
+        a{text-decoration: none; color: white;}
+        li{
+            list-style: none;
+            width: 120px; height: 50px;
+            color: white;
+            line-height: 50px;
+        }
+        .active{
+            background-color: orange;
+        }
+
+        .second{display: none;}
+
+        .third{width: 0px; display: none;}
+
+        .first>li{float: left; margin-right: 10px;}
+        .second>li{background-color: green; margin-right: 50px;}
+        .third>li{background-color: blue;}
+
+        ul{
+            text-align: center;
+            width: 1200px;
+            margin: auto;
+        }
+        .warp{
+            background-color: #2b2b2b;
+        }
+        .first>li:hover{
+            background-color: aqua;
+            color: rebeccapurple
+        }
+        .second>li:hover{
+            background-color: purple;
+        }
+        .second>li:hover .third{
+            display: block;
+        }
+        .first>li:hover a{
+            color: #2b2b2b;
+        }
+        .first>li:hover .second{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <ul class="first">
+            <li class="active">
+                    <a href="https://www.baidu.com" target="_blank">首页</a>
+                <ul class="second">
+                    <li>
+                        <p class="fl">首页二级1</p>
+                        <ul class="third fr">
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">首页二级2</p>
+                        <ul class="third fr">
+                            <li>首页二级2-3</li>
+                            <li>首页二级2-3</li>
+                            <li>首页二级2-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">首页二级3</p>
+                        <ul class="third fr">
+                            <li>首页二级3-3</li>
+                            <li>首页二级3-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>服务范围</p>
+                <ul class="second">
+                    <li>
+                        <p class="fl">服务二级1</p>
+                        <ul class="third fr">
+                            <li>服务二级1-3</li>
+                            <li>服务二级1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">服务二级2</p>
+                        <ul class="third fr">
+                            <li>服务二级2-3</li>
+                            <li>服务二级2-3</li>
+                            <li>服务二级2-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">服务二级3</p>
+                        <ul class="third fr">
+                            <li>服务二级3-3</li>
+                            <li>服务二级3-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>工程案例</p>
+                <ul class="second">
+                    <li>
+                        <p class="fl">工程二级1</p>
+                        <ul class="third fr">
+                            <li>工程二级1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">工程二级2</p>
+                        <ul class="third fr">
+                            <li>工程二级2-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">工程二级3</p>
+                        <ul class="third fr">
+                            <li>工程二级3-3</li>
+                            <li>工程二级3-3</li>
+                            <li>工程二级3-3</li>
+                            <li>工程二级3-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>新闻动态</p>
+                <ul class="second">
+                    <li>
+                        <p class="fl">新闻二级1</p>
+                        <ul class="third fr">
+                            <li>新闻二级1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">新闻二级2</p>
+                        <ul class="third fr">
+                            <li>新闻二级2-3</li>
+                            <li>新闻二级2-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p class="fl">新闻二级3</p>
+                        <ul class="third fr">
+                            <li>新闻二级3-3</li>
+                            <li>新闻二级3-3</li>
+                            <li>新闻二级3-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="http://www.baidu.com/404.html" target="_blank">关于我们</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Spin</title>
+    <style>
+        .bg{
+            width: 600px;
+            height: 600px;
+            background: url(rolling_plate.png) no-repeat center;
+            background-size: cover;
+        }
+        .start{position: absolute; left: 225px; top: 185px;}
+        .text{font-size: 20px;}
+        .result{font-size: 30px;}
+    </style>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div style="position: relative;">
+        <div class="bg"></div>
+        <img class="start" src="pointer.png" alt="" style="width: 150px;">
+    </div>
+    <div class="prompt">
+        <p class="text">幸运大转盘</p>
+        <p class="result"></p>
+    </div>
+    <script>
+        var startNum=1080;
+        $(".start").on("click", function(){
+            // 重置结果提示
+            $(".prompt .result").text("");
+            const d = Math.floor(Math.random()*(startNum+360-startNum+1))+startNum;
+            $(".bg").css({
+                "transition": "all 2s",
+                "transform": "rotate(" + d + "deg)"
+            })
+            startNum = d + 1080;
+        })
+        $(".bg").on("transitionend", function(){
+            const offset = startNum % 360;
+            if((offset>=0&&offset<=30)||(offset>=180&&offset<=210)){    // iphone区间
+                $(".prompt .result").text("恭喜获得iphone").css("color", "red");
+            } else if((offset>=60&&offset<=90)||(offset>=240&&offset<=270)){    // switch2区间
+                $(".prompt .result").text("恭喜获得switch2").css("color", "red");
+            } else if((offset>=120&&offset<=150)||(offset>=300&&offset<=330)){    // ps5区间
+                $(".prompt .result").text("恭喜获得ps5").css("color", "red");
+            } else {
+                $(".prompt .result").text("什么都没抽中......").css("color", "black");
+            }
+        })
+    </script>
+</body>
+</html>

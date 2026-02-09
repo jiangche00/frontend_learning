@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计划任务表</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        input your schedule: <input type="text" v-model="todo" @keyup.enter="add">
+        <ul>
+            <template v-for="(item,index) in list" :key="index">
+                <li @click="remove(index)">{{item}}</li> <!-- 把index传进来,函数里面用splice来删 -->
+            </template>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data:{
+                todo:"",
+                list:[],
+            },
+            methods:{
+                add(){
+                    this.list.push(this.todo);
+                    this.todo = "";
+                },
+                remove(index){
+                    this.list.splice(index, 1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

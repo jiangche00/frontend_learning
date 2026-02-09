@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            内置对象：js已经定义的对象
+                数组
+                    属性： length
+                    方法：
+                        toString()
+                        slice()
+                        indexOf()
+                        join(连接符) 把数组连接成字符串
+                        concat(arr1, arr2...) 末尾拼接附加数组
+                        unshift(arr1, arr2...) 开头拼接附加数组
+                        shift() 删除数组第一位元素
+                        splice() 在任意位置添加或者删除元素 (用途多)
+                        reverse() 反转
+                        sort() 默认升序排序，也可以接受一个函数作为参数
+                        map() 对数组每一项进行操作，并返回一个新数组
+                        filter() 对数组的每一项进行条件判断，true的留下，false的删了。最终返回一个新数组
+                        every() 返回bool值，如果数组的每一项都符合条件，true，否则是false
+                        some() 返回bool值，如果数组至少一项符合条件，true，否则false
+                        includes() 返回bool值，判断数组中有没有指定项
+                        forEach() 循环对数组每一项进行操作
+                        push(追加元素) 向数组结尾追加元素 有返回值， 返回值是追加的元素
+                    
+                    Array.isArray(arr) 判断arr是不是数组
+
+
+            基本包装类型：
+                string:
+                    属性：
+                        1. lengh 返回字符串长度
+                    方法:
+                        1. toUpperCase() 转大写
+                        2. toLowerCase() 转小写
+                        3. substring(start,end) 截取字符串字串 [start,end)
+                        4. slice()同上 截取子数组
+                        5. indexOf(arg) 返回关键字的index， 找不到返回 -1
+                        6. toString() 转成字符串
+                        7. split(arg) 按字符串切割字符，返回数组 
+                        8. concat(str1, str2) 拼接字符串
+                number:
+
+                boolean:
+
+        */
+        
+        var str = "hello";
+        console.log(str.toUpperCase());
+
+        var str2 = "你以为你以为的就是你以为的吗";
+        console.log(str2.indexOf("以为", 2));
+        function search2(str, word) {
+            var result = {count:0, positions:[]};
+            var position = str.indexOf(word, 0);
+            while(position != -1) {
+                result.count++;
+                result.positions.push(position);
+                if(position+1 > str.lengh) {
+                    break;
+                }
+                position = str.indexOf(word, position+1);
+            }
+            return result;
+        }
+        console.log(search2(str2, "以为"));
+
+        var arr1=[1,2,3,4,5]; // 
+        arr1.splice(1,2); //  从index是1的元素开始，连续删2个
+        arr1.splice(1,0,9,10,8); // 从index是1的元素位置，加入9,10,8
+        arr1.splice(1,2,6,5,3); // 从index是1的元素开始连续删2个，且在该位置加入6,5,3
+
+        var arr2=[9,16,178,37,49,223,2];
+        // sort 的 作为参数的函数compareFn 接受2个参数a,b，
+        // 若让他返回值大于0, 则排序b排在a前面, 形成降序序列
+        // 若让他返回值小于0，则排序a排在b前面，形成升序序列
+        arr2.sort((a, b) => {return a-b;});
+        console.log(arr2);
+
+        // arr2的每一项都平方，返回新数组存在arr3
+        var arr3 = arr2.map((item) => {
+            return item * item;
+        })
+        console.log(arr3);
+
+        // arr2大于100的留下，小于100的删了，最终结果存arr4
+        // 用filter函数，true的留下，false的不留
+        var arr4 = arr2.filter((item) => {
+            return item > 100;
+        })
+        console.log(arr4);
+
+        // filter出来number类型的
+        var arr5=[1,2,3,4,5,"hello",true,[1,2,3],9];
+        var narr5 = arr5.filter((item) => {
+            return typeof(item) === "number";
+        })
+        console.log(narr5);
+
+        // 数组是不是每个元素都是偶数
+        var arr6=[2,4,6,8];
+        var res = arr6.every((item) => {
+            return item % 2 === 0;
+        })
+        console.log(res);
+
+        var arr7=[5,2,3,4,7];
+        arr7.forEach((item, index) => {
+            //对数组每一项进行操作
+            console.log(item + ", index: " + index);
+        })
+
+        // 数组去掉重复元素
+        var arr8 = [1,2,3,2,1,5,5,7,6,6,6,"a",true,"a","b","c",false,true];
+        // 正序循环
+        const removeDuplicate = (arr) => {
+            for(var i = 0; i < arr.length; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    if (arr[i] === arr[j]) {
+                        arr.splice(j, 1);
+                        j--;
+                    }
+                }
+            }
+        }
+        removeDuplicate(arr8);
+        console.log(arr8);
+
+        var arr9 = [1,2,3,2,1,5,5,7,6,6,6,"a",true,"a","b","c",false,true];
+        //倒序循环
+        const removeDuplicateRev = (arr) => {
+            for(var i = 0; i < arr.length; i++) {
+                for (var j = arr.length - 1; j > i; j--) {
+                    if (arr[i] === arr[j]) {
+                        arr.splice(j, 1);
+                    }
+                }
+            }
+        }
+        removeDuplicate(arr9);
+        console.log(arr9);
+    </script>
+</body>
+</html>

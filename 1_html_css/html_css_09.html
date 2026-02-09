@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        a{text-decoration: none; color: white;}
+        .box{
+            width: 500px; height: 500px; background-color: red;
+            display: inline; /* 作为内联元素展示 */
+        }
+        .box2{
+            width: 300px; height: 300px; background-color: yellow;
+            display: block; /* 作为块元素展示 */
+        }
+        li{
+            list-style: none;
+            width: 120px; height: 50px;
+            color: white;
+            line-height: 50px;
+        }
+        .active{
+            background-color: orange;
+        }
+
+        .second{display: none;}
+
+        .first>li{float: left; margin-right: 10px;}
+        .second>li{background-color: green;}
+        .third>li{background-color: yellow;}
+        ul{
+            text-align: center;
+            width: 1200px;
+            margin: auto;
+        }
+        .warp{
+            background-color: #2b2b2b;
+        }
+        .first>li:hover{
+            background-color: aqua;
+            color: rebeccapurple
+        }
+        .second>li:hover{
+            background-color: purple;
+        }
+        .first>li:hover a{
+            color: #2b2b2b;
+        }
+        .first>li:hover .second{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        块元素 与 内联元素之间， 可以相互转化
+            display: inline 将块元素转化为内联元素
+            display: block 将内联元素转化为块元素
+        上述一般场景下不会使用
+
+        display: inline-block 转化为内联块(兼具了块元素和内联元素的特点， 又有宽高，又不换行)
+        尽量不要用内联块
+
+        display: none
+
+        尽量避免文字和标签同级，即最好给文字套个标签
+
+        鼠标划过的元素:hover 要更改样式的元素{鼠标划过之后要更改的样式}
+        要更改样式的元素必须是鼠标划过元素的子集
+
+    -->
+    <!-- display: inline 将块元素转化为内联元素 -->
+    <div class="box"></div>
+
+    <!-- display: block 将内联元素转化为块元素 -->
+    <span class="box2"></span>
+
+    <div class="warp">
+        <ul class="first">
+            <li class="active">
+                    <a href="https://www.baidu.com" target="_blank">首页</a>
+                <ul class="second">
+                    <li>
+                        <p>首页二级1</p>
+                        <ul class="third">
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                            <li>首页二级1-3</li>
+                        </ul>
+                    </li>
+                    <li>首页二级2</li>
+                    <li>首页二级3</li>
+                    <li>首页二级4</li>
+                    <li>首页二级5</li>
+                </ul>
+            </li>
+            <li>
+                <p>服务范围</p>
+                <ul class="second">
+                    <li>服务范围二级</li>
+                    <li>服务范围二级</li>
+                    <li>服务范围二级</li>
+                    <li>服务范围二级</li>
+                    <li>服务范围二级</li>
+                </ul>
+            </li>
+            <li>工程案例</li>
+            <li>新闻动态</li>
+            <li>关于我们</li>
+            <div style="clear: both;"></div>
+        </ul>
+    </div>
+</body>
+</html>

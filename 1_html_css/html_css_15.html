@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .fl{float: left;}
+        .fr{float: right;}
+        .clear{clear: both;}
+        body{background-color: #f3f3f3;}
+        .head{width: 1200px; margin: auto; font-size: 18px; color: #3c3d46;}
+        .logo{margin-top: 7px;}
+        .logo img{vertical-align: middle;}
+        li{list-style: none;}
+        .nav li{
+            float: left; 
+            width: 80px; 
+            height: 72px; 
+            margin-right: 24px;
+            text-align: center;
+            line-height: 72px;
+        }
+        .nav{margin-left: 159px;}
+        .act{background-color: #5696ff; color: #fff !important;}
+        .login{line-height: 72px;}
+        .line{margin: 0 10px;}
+
+
+
+        .banner{
+            height: 48px;
+            background: url(youyou-main-adv.jpg) no-repeat center;
+            padding-top: 552px;
+        }
+        .change{width: 53px; margin: auto;}
+        .cir{width: 16px; height: 16px; border-radius: 50%;}
+        .circle1{background-color: #fff;}
+        /* box-sizing: border-box 把描边算在宽高里面 */
+        .circle2{border: #fff 2px solid; box-sizing: border-box;}
+
+
+        .title .line{width: 78px; height: 6px; background-color: #666666; margin-top: 18px;}
+        .area{width: 327px; margin: auto; margin-top: 60px;}
+        .title h1{margin-left: 2px; font-size: 32px; color: #5696ff;}
+        .second_title{text-align: center; font-size: 22px; color: #666666; margin-top: 24px;}
+
+
+        .search{
+            width: 350px; 
+            margin: auto; 
+            position: relative; 
+            margin-top: 70px;
+        }
+        .search input{
+            width: 350px;
+            height: 40px;
+            border: #666666 1px solid;
+            border-radius: 5px;
+        }
+        .search img{position: absolute; right: 13px; top: 8px;}
+
+
+
+        .areapic_list{
+            width: 1202px;
+            margin: auto;
+            margin-top: 55px;
+        }
+        .pic{
+            width: 118px;
+            height: 373px;
+            float: left;
+            margin-right: 3px;
+        }
+        .denmark{
+            width: 596px;
+            background: url(youyou-denmark-pic.jpg);
+        }
+        .sichuan{
+            background: url(youyou-sichuan-pic.jpg) no-repeat center;
+        }
+        .dali{
+            background: url(youyou-dali-pic.jpg) no-repeat center;
+        }
+        .japan{
+            background: url(youyou-japan-pic.jpg) no-repeat center;
+        }
+        .italy{
+            background: url(youyou-italy-pic.jpg) no-repeat center;
+        }
+        .france{
+            background: url(youyou-france-pic.jpg) no-repeat center;
+            margin-right: 0px;
+        }
+        .shadow{
+            height: 303px; background-color: rgba(51, 51, 51, 0.5);
+            padding-left: 31px; padding-top: 70px;
+        }
+        .shadow p{
+            font-size: 28px; color: #fbfcfd;
+            line-height: 30px;
+        }
+
+
+
+        .more{
+            width: 160px; 
+            height: 54px; 
+            border: #5696ff 2px solid;
+            border-radius: 5px;
+            font-size: 26px;
+            color: #5696ff;
+            background: none;
+            margin: auto;
+            line-height: 54px;
+            text-align: center;
+            margin-top: 72px;
+        }
+
+
+        .adv_blocks{
+            width: 1200px;
+            margin: auto;
+            margin-top: 54px;
+        }
+
+        .up_part{
+            margin-bottom: 8px;
+        }
+
+        .up_part .denmark_adv{
+            width: 441px;
+            height: 307px;
+            background: url(youyou-denmark-5d6n.jpg) no-repeat center;
+            margin-right: 8px;
+            position: relative;
+        }
+
+        .up_part .vietnam_adv{
+            width: 400px;
+            height: 265px;
+            background: url(youyou-vietnam-12d.jpg) no-repeat center;
+            position: relative;
+            padding: 21px;
+        }
+
+        .down_part .thailand_adv{
+            width: 362px;
+            height: 369px;
+            background: url(youyou-thailand-5d.jpg) no-repeat center;
+            margin-right: 8px;
+            position: relative;
+        }
+
+        .down_part .malaysia_adv{
+            width: 521px;
+            height: 369px;
+            background: url(youyou-malaysia-6d4n.jpg) no-repeat center;
+            position: relative;
+        }
+        .blocks_right .japan_adv{
+            width: 300px;
+            height: 472px;
+            background: url(youyou-japan-5d6n.jpg) no-repeat center;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .blocks_right .india_adv{
+            width: 300px;
+            height: 204px;
+            background: url(youyou-india-4d.jpg) no-repeat center;
+            position: relative;
+        }
+        .adv_blocks p{
+            font-size: 22px;
+            color: #fff;
+            position: absolute;
+            top: 49px;
+            left: 56px;
+        }
+        .vietnam_adv .shadow{
+            height: 266px; background-color: rgba(51, 51, 51, 0.5);
+            border: #fff 4px solid;
+            padding: 0;
+            position: relative;
+        }
+        .price{
+            position: absolute;
+            top: 90px;
+            left: 40px;
+        }
+        .price .line{width: 88px; height: 6px; background-color: #fff; margin-top: 18px;}
+        .price h1{margin-left: 12px; margin-right: 12px; font-size: 32px; color: #fff;}
+
+
+        .more2{
+            width: 160px; 
+            height: 54px;
+            background-color: #5696ff;
+            border: #5696ff 2px solid;
+            border-radius: 5px;
+            font-size: 26px;
+            color: #fff;
+            margin: auto;
+            line-height: 54px;
+            text-align: center;
+            margin-top: 72px;
+        }
+
+        .second_title_lvyouzixun{font-size: 20px;}
+
+
+
+
+
+        .tour_news{
+            width: 1200px;
+            height: 745px;
+            background: url(youyou-news-bg.jpg) no-repeat center;
+            margin: auto;
+            margin-top: 202px;
+            position: relative;
+        }
+        .tour_news img{
+            border: #f3f3f3 41px solid;
+            position: absolute;
+            right: 0;
+            top: -176px;
+        }
+        .rule .line{
+            width: 132px;
+            height: 7px;
+            background-color: #666666;
+            margin-left: auto;
+            margin-right: 0;
+            margin-bottom: 28px;
+        }
+        .w1200{
+            width: 1200px;
+            margin: auto;
+        }
+        .rule p{
+            width: 561px;
+            font-size: 24px;
+            line-height: 48px;
+            color: #333333;
+            text-indent: 2em;
+        }
+        .article{
+            margin-top: 50px;
+        }
+        .rule h3{
+            text-align: right;
+            font-size: 30px;
+            color: #333333;
+            font-weight: 500;
+        }
+        .ar_title{
+            margin-left: 158px;
+        }
+        .full_article_btn{
+            width: 180px;
+            height: 60px;
+            border: #999999 3px solid;
+            border-radius: 5px;
+            font-size: 26px;
+            line-height: 60px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+
+
+
+        .tour_news2{
+            margin-top: 70px;
+        }
+        .nz_bg{
+            width: 578px;
+            height: 781px;
+            background: url(youyou-newzealand-bg.jpg) no-repeat center;
+        }
+        .nz_church{
+            position: relative;
+        }
+        .nz_church img{
+            border: #f3f3f3 47px solid;
+            position: absolute;
+            right: 0;
+            top: 64px;
+        }
+        .article2{
+            margin-top: 50px;
+        }
+        .article2 p{
+            text-indent: 0em;
+            line-height: 56px;
+        }
+        .rule .paragraph{
+            margin-top: -190px;
+        }
+        .more3{
+            width: 160px; 
+            height: 54px; 
+            border: #5696ff 2px solid;
+            border-radius: 5px;
+            font-size: 26px;
+            color: #5696ff;
+            background: none;
+            margin: auto;
+            line-height: 54px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+
+
+
+        .main_article{
+            width: 730px;
+            height: 965px;
+            background: url(youyou-main-article-bg.jpg) no-repeat center;
+            box-shadow: #b3b1b1 0px 0px 15px 5px;
+        }
+        .main_article .shadow{
+            width: 377px;
+            height: 830px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 65px 62px;
+        }
+        .main_article .featured{
+            font-size: 24px;
+            color:#5696ff;
+        }
+        .main_article .title{
+            font-size: 24px;
+            color: #fefefe;
+            margin-top: 77px;
+        }
+        .main_article .tag{
+            font-size: 20px;
+            color: #fff;
+        }
+        .main_article .date{
+            font-size: 18px;
+            color: #fff;
+            text-align: right;
+        }
+        .main_article .paragraph p{
+            font-size: 18px;
+            color: #fff;
+            line-height: 48px;
+            text-indent: 2em;
+        }
+        .main_article .button{
+            width: 160px; 
+            height: 54px; 
+            border: #fff 2px solid;
+            border-radius: 5px;
+            font-size: 26px;
+            color: #fff;
+            background: none;
+            line-height: 54px;
+            text-align: center;
+            margin-top: 136px;
+        }
+        .article_list .article1{
+            width: 371px;
+            height: 394px;
+            padding: 36px;
+            box-shadow: #b0adad 0px 0px 15px 5px;
+        }
+        .article_list .article2{
+            width: 371px;
+            height: 394px;
+            margin-top: 30px;
+            padding: 36px;
+            box-shadow: #b3b1b1 0px 0px 15px 5px;
+        }
+        .article_list .tag{
+            color: #fff;
+            font-size: 12px;
+            background-color: #a6c2df;
+            margin-right: 16px;
+        }
+        .article1_pic{
+            width: 349px;
+            height: 271px;
+            background: url(youyou-thailand-grandpalace.jpg) no-repeat center;
+            padding: 13px;
+        }
+        .article2_pic{
+            width: 349px;
+            height: 271px;
+            background: url(youyou-tibet-kawagarbo.jpg) no-repeat center;
+            padding: 13px;
+        }
+        .article_list p{
+            line-height: 20px;   
+        }
+        .article_list .date,.content{
+            font-size: 14px;
+        }
+        .article_list .title{
+            font-size: 12px;
+        }
+
+
+        .featured_pic_text{
+            font-size: 24px;
+            color:#5696ff;
+            margin-bottom: 26px;
+        }
+        .pic_container_list .container{
+            margin-right: 10px;
+        }
+
+        .bottom_block{
+            width: 100%;
+            height: 130px;
+            background-color: #5696ff;
+            margin-top: 68px;
+        }
+        .license{
+            font-size: 16px;
+            color: #fafafc;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+    <!-- 头部导航 -->
+    <div class="head">
+        <div class="logo fl">
+            <img src="youyou-logo-icon.png" alt="">
+            <img src="youyou-logo-text.png" alt="">
+        </div>
+        <ul class="nav fl">
+            <li class="act">首页</li>
+            <li>地区</li>
+            <li>特惠</li>
+            <li>资讯</li>
+            <li>游记</li>
+            <div class="clear"></div>
+        </ul>
+        <div class="fr login">
+            <span>登陆</span><span class="line">|</span><span>注册</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- banner图 -->
+    <div class="banner">
+        <div class="change">
+            <div class="circle1 cir fl"></div>
+            <div class="circle2 cir fr"></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 搜索框 -->
+    <div class="search">
+        <input type="text">
+        <img src="youyou-search-icon.png" alt="">
+    </div>
+    <!-- 地区旅游 -->
+    <div class="area">
+        <div class="title">
+            <div class="line fl"></div>
+            <h1 class="fl">地区旅游</h1>
+            <div class="line fr"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="second_title">
+            从这开始有意思的地区文化
+        </div>
+    </div>
+    <!-- 图片列表 -->
+    <div class="areapic_list">
+        <div class="pic sichuan">
+            <div class="shadow">
+                <p>四<br>川</p>
+            </div>
+        </div>
+        <div class="pic dali">
+            <div class="shadow">
+                <p>大<br>理</p>
+            </div>
+        </div>
+        <div class="pic denmark">
+            <div class="shadow">
+                <p>丹<br>麦</p>
+            </div>
+        </div>
+        <div class="pic japan">
+            <div class="shadow">
+                <p>日<br>本</p>
+            </div>
+        </div>
+        <div class="pic italy">
+            <div class="shadow">
+                <p>意<br>大<br>利</p>
+            </div>
+        </div>
+        <div class="pic france">
+            <div class="shadow">
+                <p>法<br>国</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- more按钮 -->
+    <div class="more">
+        More>
+    </div>
+    <!-- 特惠行程 -->
+    <div class="area">
+        <div class="title">
+            <div class="line fl"></div>
+            <h1 class="fl">特惠行程</h1>
+            <div class="line fr"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="second_title">
+            给你带来最省钱的旅游
+        </div>
+    </div>
+    <!-- 图片广告块 -->
+    <div class="adv_blocks">
+        <div class="blocks_left fl">
+            <div class="up_part">
+                <div class="denmark_adv fl">
+                    <p>丹麦5晚6日童话之旅</p>
+                </div>
+                <div class="vietnam_adv fl">
+                    <div class="shadow">
+                        <div class="price">
+                            <div class="line fl"></div>
+                            <h1 class="fl">¥2300</h1>
+                            <div class="line fr"></div>
+                            <div class="clear"></div>
+                        </div> 
+                    </div>
+                    <p>越南12晚3天美妙之旅</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="down_part">
+                <div class="thailand_adv fl">
+                    <p>泰国曼谷5晚6日游</p>
+                </div>
+                <div class="malaysia_adv fl">
+                    <p>马来西亚4晚6日经典游</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="blocks_right fr">
+            <div class="japan_adv">
+                <p>日本5晚6日全景游</p>
+            </div>
+            <div class="india_adv">
+                <p>印度4晚6日经典游</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- more按钮2 -->
+    <div class="more2">
+        More>
+    </div>
+    <!-- 旅游资讯 -->
+    <div class="area">
+        <div class="title">
+            <div class="line fl"></div>
+            <h1 class="fl">旅游资讯</h1>
+            <div class="line fr"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="second_title second_title_lvyouzixun">
+            各种奇妙有趣的新闻等你来发现哦
+        </div>
+    </div>
+    <!-- 具体的旅游资讯 -->
+    <div class="tour_news">
+        <img src="youyou-pyramid.jpg" alt="">
+    </div>
+    <div class="w1200 article">
+        <div class="rule">
+            <div class="ar_title fl">
+                <div class="line"></div>
+                <h3>墨西哥关于<br>外国公民入境的有关规定</h3>
+            </div>
+            <div class="fr">
+                <p style="text-indent: 0em;">
+                    墨西哥对外国公民入境有严格的规定。为便于中国公民准备入境材料，驻墨西哥使馆将墨移民局提供的部分规定摘译整理如下，供来墨人员参考（以下规定最终解释权属墨方有关部门）：
+                </p>
+                <p>一、墨西哥《移民法》规定，外国公民入境墨西哥应满足如下要求：</p>
+                <p>1、向墨西哥移民官员出示如下证件：</p>
+                <p>（1）护照或现行国际法认可有效的身份和旅行证件；</p>
+                <p>（2）合法有效签证（如需）......</p>
+                <div class="full_article_btn">完整文章</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 具体的旅游资讯2 -->
+    <div class="tour_news2 w1200">
+        <div class="nz_bg fl"></div>
+        <div class="nz_church fr">
+            <img src="youyou-newzealand-church.jpg" alt="">
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="w1200 article2">
+        <div class="rule">
+            <div class="ar_title fl">
+                <div class="line"></div>
+                <h3>新西兰<br>明年准备征游客税</h3>
+            </div>
+            <div class="fr paragraph">
+                <p>
+                    据消息称，新西兰旅游部长表示，新西兰明年(2018年)将会引进游客税。
+                </p>
+                <p>
+                    相关部门不希望新西兰旅游胜地的美誉受到影响，需要采取措施来帮助本地议会来应对越来越多的游客。Destination Queenstown表示，若是当地部门不采取措施来应对巨大的游客数量，皇后镇可能会像威尼斯和巴塞罗那一样，造成旅游业过度开发。
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- more按钮 -->
+    <div class="more3">
+        More>
+    </div>
+    <!-- 游记分享 -->
+    <div class="area">
+        <div class="title">
+            <div class="line fl"></div>
+            <h1 class="fl">游记分享</h1>
+            <div class="line fr"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="second_title">
+            在这可以找到最好的旅游攻略
+        </div>
+    </div>
+    <!-- 
+        阴影
+        box-shadow 颜色 水平偏移 垂直偏移 模糊距离 投影大小 
+     -->
+    <!-- <div style="width: 500px;height: 500px; box-shadow: #333333 0px 0px 5px 5px; margin: 100px;"></div> -->
+    <div class="w1200" style="margin-top: 50px;">
+        <div class="main_article fl">
+            <div class="shadow">
+                <p class="featured">精选文章</p>
+                <p class="title">大理，与阳光约会</p>
+                <p class="tag">云南&nbsp;&nbsp;|&nbsp;&nbsp;大理&nbsp;&nbsp;|&nbsp;&nbsp;洱海</p>
+                <p class="date">2017年1月13日</p>
+                <div class="paragraph">
+                    <p>
+                        寒假开始，我便踏上了开往云南的列车。武汉的冬天基本上是阴暗湿冷的，我多想赶快到达云南，拥抱温暖的阳光。     
+                    </p>
+                    <p>
+                        十几天里，我在海埂长堤上喂过海鸥，在洱海沿线画了一个圈，在双廊享受面朝大海春暖花开的惬意，在丽江的阿安酸奶和前台的山东老乡晒太阳聊天，在虎跳峡和棒子们你追我赶。曾经嫌弃过大理的冷清，也曾经抱怨过丽江的物质。但是，当真正要离开的时候，满满的都是不舍...
+                    </p>
+                </div>
+                <div class="button">
+                    完整文章
+                </div>
+            </div>
+        </div>
+        <div class="article_list fr">
+            <div class="article1">
+                <div class="article1_pic">
+                    <div class="fl tag">卡瓦格博</div>
+                    <div class="fl tag">黄昏</div>
+                    <div class="clear"></div>
+                </div>
+                <p class="date" style="line-height: 30px;">2017.01.03</p>
+                <p class="title">泰国—活着的冲动，浮生一场春梦</p>
+                <p class="content">上世纪80年代，我的父母青春年少之时，生于小城镇的他们还穿着母亲亲手裁制的衣裤，过着粮票兑粮，精打细算的生活 当时的崔健还未成名，收音机里放的还是邓丽君、山口百惠.... 而此时的大...完整文章>></p>
+            </div>
+            <div class="article2">
+                <div class="article2_pic">
+                    <div class="fl tag" style="background-color: #3c6cbc;">卡瓦格博</div>
+                    <div class="fl tag" style="background-color: #3c6cbc;">黄昏</div>
+                    <div class="clear"></div>
+                </div>
+                <p class="date" style="line-height: 30px;">2017.04.15</p>
+                <p class="title">初见卡瓦格博</p>
+                <p class="content">飞来寺，斗转星移间，我们守望6740的日照金山。当一缕缕金色的光线，洒满卡瓦格博的峰尖，就在那一瞬间，我挣脱了重重桎梏，舍却了依依旧念，只为那游荡不安的心魂，从此越发疯癫...完整文章>></p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- 精选文章 -->
+    <div class="w1200" style="margin-top: 53px; width: 1148px; padding: 26px; box-shadow: #b3b1b1 0px 0px 15px 5px;">
+        <p class="featured_pic_text">精选照片</p>
+        <div class="pic_container_list">
+            <div class="container fl">
+                <img src="youyou-featured-img1.jpg" alt="">
+                <p style="color: #666666;">2017.03.06&nbsp;&nbsp;&nbsp;&nbsp;By Ben</p>
+                <p style="font-size: 18px; color: #666666;">深入贺兰山</p>
+            </div>
+            <div class="container fl">
+                <img src="youyou-featured-img2.jpg" alt="">
+                <p style="color: #666666;">2017.03.06&nbsp;&nbsp;&nbsp;&nbsp;By Ever</p>
+                <p style="font-size: 18px; color: #666666;">雪融山</p>
+            </div>
+            <div class="container fl">
+                <img src="youyou-featured-img3.jpg" alt="">
+                <p style="color: #666666;">2017.03.06&nbsp;&nbsp;&nbsp;&nbsp;By Windy</p>
+                <p style="font-size: 18px; color: #666666;">金色的雪山</p>
+            </div>
+            <div class="container fl">
+                <img src="youyou-featured-img4.jpg" alt="">
+                <p style="color: #666666;">2017.03.06&nbsp;&nbsp;&nbsp;&nbsp;By Jay</p>
+                <p style="font-size: 18px; color: #666666;">黄昏与海</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- more按钮 -->
+    <div class="more">
+        More>
+    </div>
+    <div class="bottom_block">
+        <div class="w1200 license" style="width: 590px;">
+            <div style="height: 20px;"></div>
+            <p>© 2017 Leyouyou.cn 粤ICP备12345678号 粤公网安备123456789012号 粤ICP证12345</p>
+            <p>营业执照 新出网证(粤)字123号 全国统一客服电话：0000-123-456</p>
+        </div>
+    </div>
+</html>

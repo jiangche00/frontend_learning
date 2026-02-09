@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <style>
+        .base{width: 200px; height: 200px; background-color: red;}
+        .base2{width: 100px; height: 100px; background-color: purple;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+            v-on缩写
+            @click 等价于 v-on:click 
+        -->
+        <button @click="change">按钮</button>
+        <!-- 
+            v-bind缩写,像下面这样的,
+            :style 等价于 v-bind:style
+        -->
+        <div :style="{display:show}" class="base"></div>
+        <input type="text" @blur="validate" @keyup="keyup">
+
+        <!-- 
+        
+            v-if v-else 条件渲染, 后面加boolean值
+            true则渲染v-if的元素,false不渲染
+            如果要配合v-else使用,v-if和v-else的元素需要挨着,v-if是true时渲染v-if的元素, false时渲染v-else的元素 
+        
+        -->
+        <button @click="change2">按钮2</button>
+        <div v-if="flag" class="base2"></div>
+        <div v-else>111</div>
+
+        <input type="text" @blur="gradesInput">
+        <p v-if="grades>=90">优秀</p>
+        <p v-else-if="grades>=80">良好</p>
+        <p v-else-if="grades>=60">及格</p>
+        <p v-else>不及格</p>
+
+        <!-- 
+            v-show, 也是接boolean，如果是false，则在元素上添加display: none不显示
+
+            v-if 和 v-show区别 （面试中会问）
+                v-if支持多选，v-show对单个元素生效互不关联
+                v-if有更高的切换开销, v-show有更高的初始渲染开销
+                    要频繁展开和收起的二级菜单元素，用v-show更好只需要改样式控制显示与否不用频繁创建元素
+                    会员头像的新元素添加，比如过圣诞节添加个圣诞帽在头像上，或者充值了vip添加个皇冠在头像上，用v-if更好，如果用v-show的话还得提前给所有用户头像创建圣诞帽和皇冠然后再控制display，工程量太大
+        -->
+        <div v-show="flag2" class="base"></div>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                show: "block",
+                reg: /^\d{6}$/,
+                flag: true,
+                flag2: true,
+                grades: 100,
+            },
+            methods: {
+                change(){
+                    if(this.show === "none") {
+                        this.show = "block";
+                    } else if(this.show === "block") {
+                        this.show = "none";
+                    }
+                },
+                change2(){
+                    this.flag = !this.flag;
+                    this.flag2 = !this.flag2;
+                },
+                validate(e){
+                    if(this.reg.test(e.target.value)) {
+                        alert("恭喜注册成功");
+                    } else {
+                        alert("输入有误");
+                    }
+                },
+                keyup(){
+                    console.log("按键触发");
+                },
+                gradesInput(e){
+                    this.grades = e.target.value;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

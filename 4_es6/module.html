@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="b.js"></script> -->
+</head>
+<body>
+    <script>
+        /*
+        13. 模块化
+            1. 基本用法
+                export 导出完整的变量声明语句
+                import import{变量名} from 路径
+            2. 导出的同时修改变量名
+                export {原来的名字 as 新的名字}
+            3. 引入的同时修改变量名
+                import {原来的名字 as 新的名字}
+                引入的所有东西都是只读的
+            4. export default 一个文件只能有一个默认导出
+               引入 default时，不用大括号，并且名字随意因为对应唯一的默认导出 import aaa from "./1.js"
+        
+        14. class类
+            其实是构造函数的语法唐
+            在类中定义的所有方法默认都是定义在原型上的
+            new 一个构造函数的时候默认会调用里面的constructor方法
+            class 通过 extends关键字进行继承
+            new一个子类的时候都会(子类不写constructor)默认调用父类构造器
+            继承机制：
+                es5: 先创建一个子类对象，再将父类的属性或者方法加进去。实例在前，继承在后
+                es6: 先将父类的属性和方法加到一个空对象上，再把该对象作为子类实例    
+        */
+
+        class Student{
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        let xm = new Student("xiaoming","19");
+        console.log(Student.prototype.constructor);
+        console.log(typeof(Student.prototype.constructor));
+        console.log(Student.prototype.constructor===Student);
+        console.log(xm);
+    </script>
+</body>
+</html>

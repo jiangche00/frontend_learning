@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 从外部引入js文件 -->
+    <script src="./js2_functions.js"></script>
+    <script>
+        console.log(456);
+        /*
+
+            alert:
+                调试 警告 打断后续代码运行
+
+            表达式：
+                表达式本质是值
+            语句：
+                if else
+
+
+            函数/方法: 
+                如果一段代码需要反复重复使用，那么就考虑封装成函数
+
+            函数作用域
+                全局作用域：函数外，在全局不能访问局部变量
+                局部作用域：函数内，在局部可以访问全局变量
+                全局变量：函数外定义的变量
+                局部变量：函数内定义的变量
+
+            闭包： 里面的函数使用了外面的函数的变量，这种结构叫做闭包
+            闭包作用：用于防止全局污染
+            闭包的弊端：内存泄漏/内存溢出
+
+            垃圾回收机制： 自动回收垃圾
+                全局变量永远不会被回收
+                函数作用域在调用的时候才创建，调用结束后立即销毁
+
+            递归：函数自己调用自己，一定需要退出条件，否则就会stackoverflow
+        */
+        var a = 6;
+        var b = 6;
+        if(a > b) {
+            console.log(a);
+        } else if (a === b) {
+            console.log('equal');
+            // alert("equal")
+        } else {
+            console.log(b);
+        }
+
+        function sum(a, b) {
+            console.log(a+b);
+        }
+        sum(3,5);
+
+        function getMin(a, b){
+            return a > b ? b : a
+        }
+        var c = getMin(3,7);
+        console.log(c);
+
+        console.log("================================")
+
+        var aa = 8;
+        function fn(){
+            aa=1;
+            var aa=12;
+            console.log(aa++);
+        }
+        var aa;
+        console.log(aa++);
+        console.log(aa);
+        fn();
+
+        console.log("================================")
+
+        // 闭包示例
+        function fn(){
+            var n=0; // n定义在函数内是局部变量，不会造成全局污染
+            // 通过fn2操作fn2外面的n
+            function fn2(){
+                return n++;
+            }
+            return fn2 // 返回f2
+        }
+        var c=fn();
+        console.log(c());
+        console.log(c());
+        n = "hello"; // 即使这里修改了n，也不影响向
+        console.log(c());
+        console.log(c());
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        对象 key:value
+        如果想要让key也用变量，需要写成[key]
+        */
+        var a="zhangsan"
+        var b="money"
+        var obj={name:a, age:28, gender:"male", [b]:10000};
+        // 修改
+        obj.age = 20;
+        obj[b] = 20000;  //key是变量的情况
+        delete obj.gender; //删除元素
+        console.log(obj);
+
+        /*
+        对象的循环 for
+        */
+        for(var key in obj){
+            console.log("key: " + key + ", value: " + obj[key]);
+        }
+
+        /*
+        对象里面有数组
+        */
+        var girlFriend={
+            gender:"female",
+            age:18,
+            isMarried:true,
+            hobby:[
+                "music",
+                "tennis",
+            ],
+            pets:[
+                {
+                    name:"wangcai",
+                    type:"dog",
+                    age:2,
+                    like:[
+                        {likeName:"sport",info:"sport"},
+                        {likeName:"food",info:"meat"},
+                    ]
+                },
+                {
+                    name:"mimi",
+                    type:"cat",
+                    age:2,
+                    like:[
+                        {likeName:"sport",info:"sport"},
+                        {likeName:"food",info:"fish"},
+                    ]
+                }
+            ]
+        };
+        console.log(girlFriend.pets[1].like[1].likeName);
+    </script>
+</body>
+</html>

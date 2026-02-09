@@ -1,0 +1,423 @@
+*{margin: 0; padding: 0;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear: both;}
+body{background-color: #f3f3f3;}
+.head{width: 1200px; margin: auto; font-size: 18px; color: #3c3d46;}
+.logo{margin-top: 7px;}
+.logo img{vertical-align: middle;}
+li{list-style: none;}
+.nav li{
+    float: left; 
+    width: 80px; 
+    height: 72px; 
+    margin-right: 24px;
+    text-align: center;
+    line-height: 72px;
+}
+.nav{margin-left: 159px;}
+.act{background-color: #5696ff; color: #fff !important;}
+.login{line-height: 72px;}
+.line{margin: 0 10px;}
+
+
+
+.banner{
+    height: 48px;
+    background: url(../img/youyou-main-adv.jpg) no-repeat center;
+    padding-top: 552px;
+}
+.change{width: 53px; margin: auto;}
+.cir{width: 16px; height: 16px; border-radius: 50%;}
+.circle1{background-color: #fff;}
+/* box-sizing: border-box 把描边算在宽高里面 */
+.circle2{border: #fff 2px solid; box-sizing: border-box;}
+
+
+.title .line{width: 78px; height: 6px; background-color: #666666; margin-top: 18px;}
+.area{width: 327px; margin: auto; margin-top: 60px;}
+.title h1{margin-left: 2px; font-size: 32px; color: #5696ff;}
+.second_title{text-align: center; font-size: 22px; color: #666666; margin-top: 24px;}
+
+
+.search{
+    width: 350px; 
+    margin: auto; 
+    position: relative; 
+    margin-top: 70px;
+}
+.search input{
+    width: 350px;
+    height: 40px;
+    border: #666666 1px solid;
+    border-radius: 5px;
+}
+.search img{position: absolute; right: 13px; top: 8px;}
+
+
+
+.areapic_list{
+    width: 1202px;
+    margin: auto;
+    margin-top: 55px;
+}
+.pic{
+    width: 118px;
+    height: 373px;
+    float: left;
+    margin-right: 3px;
+}
+.denmark{
+    width: 596px;
+    background: url(../img/youyou-denmark-pic.jpg);
+}
+.sichuan{
+    background: url(../img/youyou-sichuan-pic.jpg) no-repeat center;
+}
+.dali{
+    background: url(../img/youyou-dali-pic.jpg) no-repeat center;
+}
+.japan{
+    background: url(../img/youyou-japan-pic.jpg) no-repeat center;
+}
+.italy{
+    background: url(../img/youyou-italy-pic.jpg) no-repeat center;
+}
+.france{
+    background: url(../img/youyou-france-pic.jpg) no-repeat center;
+    margin-right: 0px;
+}
+.shadow{
+    height: 303px; background-color: rgba(51, 51, 51, 0.5);
+    padding-left: 31px; padding-top: 70px;
+}
+.shadow p{
+    font-size: 28px; color: #fbfcfd;
+    line-height: 30px;
+}
+
+
+
+.more{
+    width: 160px; 
+    height: 54px; 
+    border: #5696ff 2px solid;
+    border-radius: 5px;
+    font-size: 26px;
+    color: #5696ff;
+    background: none;
+    margin: auto;
+    line-height: 54px;
+    text-align: center;
+    margin-top: 72px;
+}
+
+
+.adv_blocks{
+    width: 1200px;
+    margin: auto;
+    margin-top: 54px;
+}
+
+.up_part{
+    margin-bottom: 8px;
+}
+
+.up_part .denmark_adv{
+    width: 441px;
+    height: 307px;
+    background: url(../img/youyou-denmark-5d6n.jpg) no-repeat center;
+    margin-right: 8px;
+    position: relative;
+}
+
+.up_part .vietnam_adv{
+    width: 400px;
+    height: 265px;
+    background: url(../img/youyou-vietnam-12d.jpg) no-repeat center;
+    position: relative;
+    padding: 21px;
+}
+
+.down_part .thailand_adv{
+    width: 362px;
+    height: 369px;
+    background: url(../img/youyou-thailand-5d.jpg) no-repeat center;
+    margin-right: 8px;
+    position: relative;
+}
+
+.down_part .malaysia_adv{
+    width: 521px;
+    height: 369px;
+    background: url(../img/youyou-malaysia-6d4n.jpg) no-repeat center;
+    position: relative;
+}
+.blocks_right .japan_adv{
+    width: 300px;
+    height: 472px;
+    background: url(../img/youyou-japan-5d6n.jpg) no-repeat center;
+    margin-bottom: 8px;
+    position: relative;
+}
+.blocks_right .india_adv{
+    width: 300px;
+    height: 204px;
+    background: url(../img/youyou-india-4d.jpg) no-repeat center;
+    position: relative;
+}
+.adv_blocks p{
+    font-size: 22px;
+    color: #fff;
+    position: absolute;
+    top: 49px;
+    left: 56px;
+}
+.vietnam_adv .shadow{
+    height: 266px; background-color: rgba(51, 51, 51, 0.5);
+    border: #fff 4px solid;
+    padding: 0;
+    position: relative;
+}
+.price{
+    position: absolute;
+    top: 90px;
+    left: 40px;
+}
+.price .line{width: 88px; height: 6px; background-color: #fff; margin-top: 18px;}
+.price h1{margin-left: 12px; margin-right: 12px; font-size: 32px; color: #fff;}
+
+
+.more2{
+    width: 160px; 
+    height: 54px;
+    background-color: #5696ff;
+    border: #5696ff 2px solid;
+    border-radius: 5px;
+    font-size: 26px;
+    color: #fff;
+    margin: auto;
+    line-height: 54px;
+    text-align: center;
+    margin-top: 72px;
+}
+
+.second_title_lvyouzixun{font-size: 20px;}
+
+
+
+
+
+.tour_news{
+    width: 1200px;
+    height: 745px;
+    background: url(../img/youyou-news-bg.jpg) no-repeat center;
+    margin: auto;
+    margin-top: 202px;
+    position: relative;
+}
+.tour_news img{
+    border: #f3f3f3 41px solid;
+    position: absolute;
+    right: 0;
+    top: -176px;
+}
+.rule .line{
+    width: 132px;
+    height: 7px;
+    background-color: #666666;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 28px;
+}
+.w1200{
+    width: 1200px;
+    margin: auto;
+}
+.rule p{
+    width: 561px;
+    font-size: 24px;
+    line-height: 48px;
+    color: #333333;
+    text-indent: 2em;
+}
+.article{
+    margin-top: 50px;
+}
+.rule h3{
+    text-align: right;
+    font-size: 30px;
+    color: #333333;
+    font-weight: 500;
+}
+.ar_title{
+    margin-left: 158px;
+}
+.full_article_btn{
+    width: 180px;
+    height: 60px;
+    border: #999999 3px solid;
+    border-radius: 5px;
+    font-size: 26px;
+    line-height: 60px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+
+.tour_news2{
+    margin-top: 70px;
+}
+.nz_bg{
+    width: 578px;
+    height: 781px;
+    background: url(../img/youyou-newzealand-bg.jpg) no-repeat center;
+}
+.nz_church{
+    position: relative;
+}
+.nz_church img{
+    border: #f3f3f3 47px solid;
+    position: absolute;
+    right: 0;
+    top: 64px;
+}
+.article2{
+    margin-top: 50px;
+}
+.article2 p{
+    text-indent: 0em;
+    line-height: 56px;
+}
+.rule .paragraph{
+    margin-top: -190px;
+}
+.more3{
+    width: 160px; 
+    height: 54px; 
+    border: #5696ff 2px solid;
+    border-radius: 5px;
+    font-size: 26px;
+    color: #5696ff;
+    background: none;
+    margin: auto;
+    line-height: 54px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+
+.main_article{
+    width: 730px;
+    height: 965px;
+    background: url(../img/youyou-main-article-bg.jpg) no-repeat center;
+    box-shadow: #b3b1b1 0px 0px 15px 5px;
+}
+.main_article .shadow{
+    width: 377px;
+    height: 830px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 65px 62px;
+}
+.main_article .featured{
+    font-size: 24px;
+    color:#5696ff;
+}
+.main_article .title{
+    font-size: 24px;
+    color: #fefefe;
+    margin-top: 77px;
+}
+.main_article .tag{
+    font-size: 20px;
+    color: #fff;
+}
+.main_article .date{
+    font-size: 18px;
+    color: #fff;
+    text-align: right;
+}
+.main_article .paragraph p{
+    font-size: 18px;
+    color: #fff;
+    line-height: 48px;
+    text-indent: 2em;
+}
+.main_article .button{
+    width: 160px; 
+    height: 54px; 
+    border: #fff 2px solid;
+    border-radius: 5px;
+    font-size: 26px;
+    color: #fff;
+    background: none;
+    line-height: 54px;
+    text-align: center;
+    margin-top: 136px;
+}
+.article_list .article1{
+    width: 371px;
+    height: 394px;
+    padding: 36px;
+    box-shadow: #b0adad 0px 0px 15px 5px;
+}
+.article_list .article2{
+    width: 371px;
+    height: 394px;
+    margin-top: 30px;
+    padding: 36px;
+    box-shadow: #b3b1b1 0px 0px 15px 5px;
+}
+.article_list .tag{
+    color: #fff;
+    font-size: 12px;
+    background-color: #a6c2df;
+    margin-right: 16px;
+}
+.article1_pic{
+    width: 349px;
+    height: 271px;
+    background: url(../img/youyou-thailand-grandpalace.jpg) no-repeat center;
+    padding: 13px;
+}
+.article2_pic{
+    width: 349px;
+    height: 271px;
+    background: url(../img/youyou-tibet-kawagarbo.jpg) no-repeat center;
+    padding: 13px;
+}
+.article_list p{
+    line-height: 20px;   
+}
+.article_list .date,.content{
+    font-size: 14px;
+}
+.article_list .title{
+    font-size: 12px;
+}
+
+
+.featured_pic_text{
+    font-size: 24px;
+    color:#5696ff;
+    margin-bottom: 26px;
+}
+.pic_container_list .container{
+    margin-right: 10px;
+}
+
+.bottom_block{
+    width: 100%;
+    height: 130px;
+    background-color: #5696ff;
+    margin-top: 68px;
+}
+.license{
+    font-size: 16px;
+    color: #fafafc;
+    line-height: 35px;
+}

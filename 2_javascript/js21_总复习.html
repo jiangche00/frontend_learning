@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="redirect">redirect</button>
+    <button id="back">back</button>
+    <script>
+
+        /*
+            BOM相关, 可以查看菜鸟教程javascript-window部分
+
+            https://www.runoob.com/js/js-window.html
+        */
+
+        var redirect = document.getElementById("redirect");
+        redirect.onclick = () => {
+            // 浏览器地址跳转
+            location.href = "https://www.baidu.com";
+        }
+
+        var back = document.getElementById("back");
+        back.onclick = () => {
+            // 返回上一页
+            history.back();
+        }
+
+        // navigator对象
+        console.log(navigator);
+
+
+        /*
+            1. 变量
+                (1).自动声明：对于未声明的变量直接赋值，js会自动在全局作用域帮你声明
+                (2).变量提升：声明会自动提升到当前作用域最顶点，赋值是不能提升的
+            2. 数据类型
+                (1).原始数据类型(string number boolean undefined null) 引用数据类型(object)
+                (2).存储位置不同，引用数据类型，变量里面存的是指针
+            3. 运算符
+                (1). 算术运算符(++),关系运算符,逻辑运算符(短路性质),赋值运算,三元运算符
+            4. 表达式语句
+                (1). 表达式 由运算符连接，最终结果一定是一个值，表达式跟值是等效的
+                (2). 语句 声明语句 循环 if else
+            5. js类形转换
+                (1). 隐式类型转换
+                        数学运算true转为1 false转为0
+                        字符串连接运算，任何数据都转换为字符串
+                        条件运算的时候: false 0 undefined null NaN "" 为false
+                (2). 显式: toString() Number() parseInt() parseFloat() split() JSON.stringify() JSON.parse()
+
+            6. 语句:
+                (1) if else for while
+            7. 函数:
+                (1). 函数声明方式， function声明的函数会整体提前，变量声明的函数遵循变量声明
+                (2). 默认没有返回值, 需要return定义返回
+                (3). 值传递
+                (4). 闭包 优缺点
+                (5). arguments对象获取函数中的所有参数，是一个类数组
+                (6). 递归, 一定要有退出条件
+                (7). 事件对象
+            8. 数组:
+                (1)常用方法，如push, pop, shift, unshift, join, filter some every map forEach, indexOf, ....
+                (2)冒泡排序，数组去重
+                (3)循环的时候需要注意数组长度的变化情况 解决方案(1. i-- 2. 倒序)
+            9. 内置对象:
+                (1) Number Boolean
+                (2) String
+                        toUpperCase, toLowerCase indexOf split slice substring
+                (3) 正则表达式
+                        RegExp 书写方法
+                (4) Math
+                        round floor ceil abs min/max random
+                (5) Date
+                        getFullYear, ... 月份获取的时候要+1修正, 设置月份的时候要-1修正
+                (6) Error
+                        SyntaxError ReferenceError TypeError
+                (7) DOM： 增删改查相关的方法
+                (8) this 指向函数到用时所在的对象
+                (9) window:parseInt parseFloat ssetInterval setTimeout clearInterval clearTimeout
+                (10) event
+                (11) XMLHttpRequest ajax使用的4个步骤
+                (12) screen location history navigator
+            10. 事件
+                (1)绑定事件的3种方式
+                    内联样式绑定 onclick...
+                    js方式绑定
+                    addEventListener
+                (2)事件触发周期 阻止冒泡 事件代理事件委托
+                (3)常用事件如 click mouseover mouseout mousemove change input keydown keypress keyup focus blur
+                (4)事件源 e.target
+            11. 定时器
+                (1) 定时器是异步的, 异步代码永远迟于同步代码执行
+                (2) 定时器是window在调用
+                (3) 启动定时器的时候带着变量名存储线程号
+                (4) 防抖和节流
+            12. 原型
+                (1)只有函数有原型，每个对象都有隐式原型
+                (2)原型链，概念
+                (3) new关键字的原型，做了哪些事 源码
+            13. ajax
+                (1)跨域问题
+                (2)发请求的4个步骤
+                (3)跨域问题 jsonp 请求代理
+                (4) JSON.stringify JSON.parse get/post区别
+            14. 高级
+                (1). instanceof
+                (2). new
+                (3). 深复制
+                (4). call apply bind
+        */
+    </script>
+</body>
+</html>

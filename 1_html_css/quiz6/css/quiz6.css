@@ -1,0 +1,144 @@
+*{
+    margin: 0; padding: 0;
+}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear: both;}
+
+/* 最上面的图标，导航，登陆注册 */
+.nav-wrap{
+    width: 1250px;
+    margin: auto;
+    /* background-color: gray; */
+}
+.nav-wrap>.logo-wrap{
+    width: 160px;
+    height: 72px;
+    margin-right: 135px;
+}
+.logo-wrap>.logo-icon{
+    width: 60px;
+    height: 72px;
+    margin-right: 10px;
+    background: url(../img/quiz6-logo-icon.png) no-repeat center;
+}
+.logo-wrap>.logo-text{
+    width: 58px;
+    height: 72px;
+    background: url(../img/quiz6-logo-text.png) no-repeat center;
+}
+.nav-wrap>.login-wrap{
+    width: 86px;
+    height: 28px;
+    padding: 22px 0px;
+    font-size: 18px;
+}
+.nav-wrap>.nav-body{
+    height: 72px;
+    /* background-color: yellow; */
+}
+.nav-body>ul{
+    text-align: center;
+    width: 550px;
+    margin: auto;
+}
+.nav-body>ul>li{
+    list-style: none; float: left; width: 80px; height: 72px; 
+    margin-right: 23px; line-height: 72px; text-align: center;
+    font-size: 18px;
+}
+ul>li:hover {
+    background-color: #5696ff;
+    color: white;
+}
+ul>.active{
+    background-color: #5696ff;
+    color: white;
+}
+
+/* 主广告 */
+.main-adv{
+    height: 600px;
+    width: 100vw;
+    background: url(../img/quiz6-main-adv.jpg) no-repeat center;
+}
+.main-adv>.north{
+    height: 530px;
+}
+.main-adv>.south{
+    height: 70px;
+}
+.main-adv>.south>.round-idx-set{
+    height: 70px;
+    width: 200px;
+    margin: auto;
+    position: relative;
+}
+.main-adv>.south>.round-idx-set>.idx-1{
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    top: 27px;
+    left: 75px;
+}
+.main-adv>.south>.round-idx-set>.idx-2{
+    height: 12px;
+    width: 12px;
+    border: white 2px solid;
+    border-radius: 10px;
+    position: absolute;
+    top: 27px;
+    right: 75px;
+}
+
+/* 分割1 */
+.blank1{
+    height: 235px;
+    width: 100vw;
+}
+
+/* 地区旅游 */
+.locale-head-wrap{
+    height: 83px;
+    width: 100vw;
+}
+.locale-head-wrap>.content{
+    height: 83px;
+    width: 350px;
+    margin: auto;
+}
+.locale-head-wrap>.content>.north{
+    height: 60px;
+}
+.locale-head-wrap>.content>.north>.bar{
+    height: 60px;
+    width: 100px;
+    position: relative;
+}
+.north>.bar>.bar-child{
+    width: 80px;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    margin: auto;
+    border-top: black 7px solid;
+}
+.locale-head-wrap>.content>.north>.motd{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 36px;
+    color: #5696ff;
+    width: 150px;
+}
+.locale-head-wrap>.content>.south{
+    height: 23px;
+    line-height: 23px;
+    font-size: 22px;
+    text-align: center;
+}

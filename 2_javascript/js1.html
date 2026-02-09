@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    EcmaScript + DOM + BOM
+
+    <!-- 
+        一般工作中，script标签一般都会存在于body的结束标签之前，即压在body的最后
+        网页从上到下加载，先让html和css先执行，再让js执行。先加载样式和界面，加载完了之后再去加载功能
+        此外，功能是依据界面和样式，所以先加载界面和样式，再加载功能
+
+
+        通过控制台console打印一些内容
+        1. 用于调试
+        2. 提示错误
+        3. 写一些其他扯蛋的内容hhhh
+    -->
+    <script>
+        var money = 123;
+        money = 234;
+        console.log(money + 1);
+
+        // 连续赋值
+        var age=money=100;
+        console.log(age+ " " + money);
+
+        var a = 3;
+        // a++ 先参与计算，再自增
+        // ++a 先自增，再参与计算
+        console.log(a++ + ++a + a++); // 3 + 5 + 5
+
+        // 关系运算符 > < >= <= == ===
+        /*
+            == 只判断数值，即使类型不一样。比如 1 == true，5 == "5"
+            === 不只判断数值，也需要类型一样
+        */
+    </script>
+</body>
+</html>

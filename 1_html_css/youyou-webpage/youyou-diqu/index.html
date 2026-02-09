@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youyou-diqu</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <div class="w1200 head">
+        <div class="logo fl">
+            <img src="img/youyou-logo-icon.png" alt="">
+            <img src="img/youyou-logo-text.png" alt="">
+        </div>
+        <ul class="nav fl">
+            <li>首页</li>
+            <li class="act">地区</li>
+            <li>特惠</li>
+            <li>资讯</li>
+            <li>游记</li>
+            <div class="clear"></div>
+        </ul>
+        <div class="fr login">
+            <span>登陆</span><span class="line">|</span><span>注册</span>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search_wrap">
+        <div class="w1200">
+            <div class="fl container">
+                <p class="left_delimiter">|</p>
+                <img src="img/youyou-icon-search.png" class="icon">
+                <p class="right_delimiter">|</p>
+            </div>
+            <div class="fr container">
+                <img src="img/youyou-icon-user.png" class="icon">
+                <p class="right_delimiter">|</p>
+            </div>
+            <div class="fr container">  
+                <img src="img/youyou-icon-comment.png" class="icon">
+                <p class="right_delimiter">|</p>
+            </div>
+            <div class="fr container">
+                <p class="left_delimiter">|</p>
+                <img src="img/youyou-icon-history.png" class="icon">
+                <p class="right_delimiter">|</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- banner区域 -->
+    <!-- 用flex -->
+    <div class="w1200 banner_wrap">
+        <div class="banner_mainpic">
+            <div class="banner_change">
+                <div class="circle1 cir"></div>
+                <div class="circle2 cir"></div>
+                <div class="circle3 cir"></div>
+            </div>
+        </div>
+        <div class="banner_catalog">
+            <div class="catalog_element">
+                <p class="catalog_font">亚洲</p>
+            </div>
+            <div class="catalog_split"></div>
+            <div class="catalog_element">
+                <p class="catalog_font">欧洲</p>
+            </div>
+            <div class="catalog_split"></div>
+            <div class="catalog_element">
+                <p class="catalog_font">北美洲</p>
+            </div>
+            <div class="catalog_split"></div>
+            <div class="catalog_element">
+                <p class="catalog_font">南洋州</p>
+            </div>
+            <div class="catalog_split"></div>
+            <div class="catalog_element">
+                <p class="catalog_font">大洋洲</p>
+            </div>
+            <div class="catalog_split"></div>
+            <div class="catalog_element">
+                <p class="catalog_font">非洲</p>
+            </div>
+            <div class="catalog_split"></div>
+            <div class="catalog_element">
+                <p class="catalog_font">南极洲</p>
+            </div>
+            <div class="catalog_split"></div>
+            <div class="catalog_element">
+                <p class="catalog_font">中国</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 热门推荐 -->
+    <div class="w1200 popular_wrap">
+        <p class="banner_font">热门推荐</p>
+        <div class="content">
+            <div class="container">
+                <div class="photo_frame" style="background: url(img/popular-jpn-cherry.jpg) no-repeat center;">
+                    <p class="comment1">JAPANESE</p>
+                    <p class="comment2">CHERRY</p>
+                    <p class="comment3">日本樱花</p>
+                </div>
+                <p class="name">日本樱花</p>
+                <div class="btn">下载阅读</div>
+            </div>
+            <div class="container">
+                <div class="photo_frame" style="background: url(img/popular-ger-swan.jpg) no-repeat center;">
+                    <p class="comment1">NEUSCHWANSTEIN</p>
+                    <p class="comment2">GERMANY</p>
+                    <p class="comment3">德国新天鹅堡</p>
+                </div>
+                <p class="name">德国新天鹅堡</p>
+                <div class="btn">下载阅读</div>
+            </div>
+            <div class="container">
+                <div class="photo_frame" style="background: url(img/popular-rus-lake.jpg) no-repeat center;">
+                    <p class="comment1">LAKE BAIKAL</p>
+                    <p class="comment2">RUSSIA</p>
+                    <p class="comment3">贝加尔湖</p>
+                </div>
+                <p class="name">俄罗斯贝加尔湖</p>
+                <div class="btn">下载阅读</div>
+            </div>
+            <div class="container">
+                <div class="photo_frame" style="background: url(img/popular-nzl-tea.jpg) no-repeat center;">
+                    <p class="comment1">NEW ZEALAND</p>
+                    <p class="comment2">TE ANAU</p>
+                    <p class="comment3">新西兰蒂阿瑙</p>
+                </div>
+                <p class="name">新西兰蒂阿瑙</p>
+                <div class="btn">下载阅读</div>
+            </div>
+            <div class="container">
+                <div class="photo_frame" style="background: url(img/popular-aus-garden.jpg) no-repeat center;">
+                    <p class="comment1">FITZROY GARDENS</p>
+                    <p class="comment2">MELBOURNE</p>
+                    <p class="comment3">墨尔本菲兹罗花园</p>
+                </div>
+                <p class="name">墨尔本菲兹罗花园</p>
+                <div class="btn">下载阅读</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 地区指南 -->
+    <div class="w1200 location_guide_wrap">
+        <!-- 左侧动态部分 -->
+        <div class="live_box fl">
+            <p class="header">他们刚刚下载了地区指南</p>
+            <div class="message">
+                <img src="img/avatar1.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">意大利建筑</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar2.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">悉尼</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar3.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">日本东北</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar4.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">佛罗伦萨</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar5.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">槟城</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar6.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">班夫与贾斯珀国家公园</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar7.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">米兰</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar8.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">新加坡</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar9.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">博洛尼亚</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="message">
+                <img src="img/avatar10.png" alt="" class="vertical_align">
+                <span class="vertical_align">&nbsp;&nbsp;刚刚下载了</span><span class="highlight vertical_align">意大利国家概览</span><span class="vertical_align">地区指南</span>
+            </div>
+            <div class="guide_wanted">
+                <p class="text">地区旅游指南作者征集</p>
+            </div>
+        </div>
+        <!-- 右侧指南 -->
+        <div class="guide_box fr">
+            <p class="header">全部地区指南</p>
+            <div class="search_container">
+                <span>按更新时间</span>
+                <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <span class="highlight">按下载量</span>
+            </div>
+            <!-- flex -->
+            <div class="content">
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-aus-sydney.jpg) no-repeat center;">
+                        <p class="comment1">OPERA HOUSE</p>
+                        <p class="comment2">SYDNEY</p>
+                        <p class="comment3">悉尼歌剧院</p>
+                    </div>
+                    <p class="name">悉尼歌剧院</p>
+                    <p class="date">2018-02-01更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-sin-santo.jpg) no-repeat center;">
+                        <p class="comment1">SINGAPORE</p>
+                        <p class="comment2">SANTOSA</p>
+                        <p class="comment3">新加坡圣淘沙</p>
+                    </div>
+                    <p class="name">新加坡圣淘沙</p>
+                    <p class="date">2018-01-31更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-ita-cathedral.jpg) no-repeat center;">
+                        <p class="comment1">CATHEDRAL</p>
+                        <p class="comment2">MILAN</p>
+                        <p class="comment3">米兰大教堂</p>
+                    </div>
+                    <p class="name">米兰大教堂</p>
+                    <p class="date">2018-01-30更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-ita-palace.jpg) no-repeat center;">
+                        <p class="comment1">ITALIAN</p>
+                        <p class="comment2">PALACE</p>
+                        <p class="comment3">意大利宫殿</p>
+                    </div>
+                    <p class="name">意大利宫殿</p>
+                    <p class="date">2018-01-30更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-ind-bali.jpg) no-repeat center;">
+                        <p class="comment1">BALI</p>
+                        <p class="comment2">INDONESIA</p>
+                        <p class="comment3">印度尼西亚巴厘岛</p>
+                    </div>
+                    <p class="name">印度尼西亚巴厘岛</p>
+                    <p class="date">2018-02-01更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-chn-hangzhou.jpg) no-repeat center;">
+                        <p class="comment1">HANGZHOU</p>
+                        <p class="comment2">CHINA</p>
+                        <p class="comment3">中国杭州</p>
+                    </div>
+                    <p class="name">中国杭州</p>
+                    <p class="date">2018-01-31更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-den-copenhagen.jpg) no-repeat center;">
+                        <p class="comment1">COPENHAGEN</p>
+                        <p class="comment2">DENMARK</p>
+                        <p class="comment3">丹麦哥本哈根</p>
+                    </div>
+                    <p class="name">丹麦哥本哈根</p>
+                    <p class="date">2018-01-31更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-thi-phuket.jpg) no-repeat center;">
+                        <p class="comment1">PHUKET</p>
+                        <p class="comment2">THAILAND</p>
+                        <p class="comment3">泰国普吉岛</p>
+                    </div>
+                    <p class="name">泰国普吉岛</p>
+                    <p class="date">2018-01-30更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-usa-volcano.jpg) no-repeat center;">
+                        <p class="comment1">VOLCANIC ISLAND</p>
+                        <p class="comment2">AMERICAN</p>
+                        <p class="comment3">美国火山岛</p>
+                    </div>
+                    <p class="name">美国火山岛</p>
+                    <p class="date">2018-02-01更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-hol-windmill.jpg) no-repeat center;">
+                        <p class="comment1">WINDMILL</p>
+                        <p class="comment2">DUTCH</p>
+                        <p class="comment3">荷兰风车</p>
+                    </div>
+                    <p class="name">荷兰风车</p>
+                    <p class="date">2018-01-31更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-fra-eifel.jpg) no-repeat center;">
+                        <p class="comment1">EIFEL TOWER</p>
+                        <p class="comment2">FRANCE</p>
+                        <p class="comment3">法国埃菲尔铁塔</p>
+                    </div>
+                    <p class="name">法国埃菲尔铁塔</p>
+                    <p class="date">2018-01-31更新</p>
+                </div>
+                <div class="container">
+                    <div class="photo_frame" style="background: url(img/guide-egy-pyramid.jpg) no-repeat center;">
+                        <p class="comment1">EGYPTIAN</p>
+                        <p class="comment2">PYRAMIDS</p>
+                        <p class="comment3">埃及金字塔</p>
+                    </div>
+                    <p class="name">埃及金字塔</p>
+                    <p class="date">2018-01-31更新</p>
+                </div>
+            </div>
+            <!-- 翻页 -->
+            <div class="page_nav">
+                <div class="previous_btn fl">
+                    <span>< 上一页</span>
+                </div>
+                <div class="nums fl">
+                    <div class="num fl">1</div>
+                    <div class="num fl active">2</div>
+                    <div class="num fl">3</div>
+                    <div class="num fl">4</div>
+                    <div class="num fl">5</div>
+                    <div class="num fl">6</div>
+                    <div class="num fl">...</div>
+                    <div class="num fl">17</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="next_btn fr">
+                    <span>< 下一页</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="bottom_block">
+        <div class="w1200 license" style="width: 590px;">
+            <div style="height: 10px;"></div>
+            <p>© 2017 Leyouyou.cn 粤ICP备12345678号 粤公网安备123456789012号 粤ICP证12345</p>
+            <p>营业执照 新出网证(粤)字123号 全国统一客服电话：0000-123-456</p>
+        </div>
+    </div>
+</body>
+</html>

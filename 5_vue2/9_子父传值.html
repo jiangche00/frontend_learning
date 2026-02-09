@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子父传值</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <!-- 
+    
+        重要！！！！！
+        子 -> 父 传值
+            自定义事件
+                自定义事件需要通过$emit(自定义方法名,参数)方法来触发。
+                参数可以是多个，用逗号分开。或者传递一个obj，里面含有多个数据，这样也行
+                案例流程:
+                    点击子组件的div，触发change事件,调用this.$emit方法来触发abc自定义事件，然后调用fn
+                    似乎类似于点击子组件，却间接的调用了父组件的方法
+            
+    -->
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <!-- 自定义abc事件 -->
+        <child @abc="fn"></child>
+    </div>
+    <script>
+
+        const child = {
+            template:`<div @click="change">我是子组件</div>`,
+            data() {
+                return {
+                    msg: "我是子组件的数据",
+                }
+            },
+            methods:{
+                change(){
+                    // 触发"abc"，并且将this.msg作为参数传递
+                    this.$emit("abc", this.msg);
+                }
+            }
+        }
+
+        new Vue({
+            el: "#app",
+            components:{
+                child,
+            },
+            data: {
+                msg: "我是父组件的数据",
+            },
+            methods: {
+                // 接收子组件传过来的参数
+                fn(a) {
+                    console.log("fn执行了");
+                    this.msg = a;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

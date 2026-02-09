@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="input"></h1>
+    <script>
+        var h1 = document.getElementById("input");
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("get", "http://localhost:8888/api/hello", true);
+        xmlhttp.send(null);
+        xmlhttp.onreadystatechange=function(){
+            if(xmlhttp.readyState===4&(xmlhttp.status>=200 & xmlhttp.status<300)){
+                var data = xmlhttp.responseText;
+                h1.innerText = data;
+            }
+        }
+    </script>
+</body>
+</html>

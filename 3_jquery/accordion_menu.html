@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accordion menu</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+        div,li{width: 200px; height: 50px; background-color: white; text-align: center; line-height: 50px; color: #b63b4d;}
+        li{color: white; background-color: #444359; border-bottom: 1px #4b4a5e solid;}
+        ul{display: none;}
+        p{display: inline-block;}
+        .arrow{transform: rotate(90deg); transition: all 0.5s;}  /*快元素支持旋转，内联元素不支持旋转*/
+        .active{transform: rotate(270deg);}
+        body{background-color: #2d2c41;}
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div>我是1级&nbsp;&nbsp;<p class="arrow">></p></div>
+    <ul>
+        <li>1-1</li>
+        <li>1-2</li>
+        <li>1-3</li>
+        <li>1-4</li>
+    </ul>
+    <div>我是2级&nbsp;&nbsp;<p class="arrow">></p></div>
+    <ul>
+        <li>2-1</li>
+        <li>2-2</li>
+        <li>2-3</li>
+        <li>2-4</li>
+    </ul>
+    <div>我是3级&nbsp;&nbsp;<p class="arrow">></p></div>
+    <ul>
+        <li>3-1</li>
+        <li>3-2</li>
+        <li>3-3</li>
+        <li>3-4</li>
+    </ul>
+    <div>我是4级&nbsp;&nbsp;<p class="arrow">></p></div>
+    <ul>
+        <li>4-1</li>
+        <li>4-2</li>
+        <li>4-3</li>
+        <li>4-4</li>
+    </ul>
+
+    <script>
+        $("div").on("click", function(){
+            // $(this).next().siblings("ul").slideUp();
+            // $(this).next().slideToggle();
+
+            // 箭头旋转
+            $(this).children(".arrow").toggleClass("active");
+            // 找到其他的已经展开的，其p元素是已经添加了active类了。需要将这个类给删掉，即还原箭头的方位
+            $(this).siblings("div").children(".active").removeClass("active");
+
+            // 写成1行: 
+            $(this).next().slideToggle().siblings("ul").slideUp();
+        })
+    </script>
+</body>
+</html>

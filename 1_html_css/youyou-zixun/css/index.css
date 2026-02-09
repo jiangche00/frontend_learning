@@ -1,0 +1,416 @@
+/* public */
+* {
+    margin: 0;
+    padding: 0;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.w1200 {
+    width: 1200px;
+    margin: auto;
+}
+body {
+    background-color: #f3f3f3;
+}
+li {
+    list-style: none;
+}
+.wd2030{
+    width: 378px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    margin-right: 30px;
+}
+.mgn_tp24{
+    margin-top: 24px;
+}
+
+
+/* 头部导航 */
+.head {
+    font-size: 18px;
+    color: #3c3d46;
+}
+.logo {
+    margin-top: 7px;
+}
+.logo img {
+    vertical-align: middle;
+}
+.nav {
+    margin-left: 159px;
+}
+.nav li {
+    float: left;
+    width: 80px;
+    height: 72px;
+    margin-right: 24px;
+    text-align: center;
+    line-height: 72px;
+}
+.act {
+    background-color: #5696ff;
+    color: #fff !important;
+}
+.login {
+    line-height: 72px;
+}
+.line {
+    margin: 0 10px;
+}
+
+
+/* 搜索框 */
+.search_wrap {
+    width: 100%;
+    background-color: #666666;
+}
+.search_wrap .container {
+    width: 100px;
+    height: 60px;
+    position: relative;
+}
+.container>.icon {
+    position: absolute;
+    top: 19px;
+    left: 39px;
+}
+.container>.left_delimiter {
+    color: #fff;
+    position: absolute;
+    top: 19px;
+    left: 0;
+}
+.container>.right_delimiter {
+    color: #fff;
+    position: absolute;
+    top: 19px;
+    right: 0;
+}
+
+
+/* banner区域 */
+.banner_wrap {
+    margin-top: 47px;
+    overflow: hidden;
+}
+.banner_wrap .left_area{
+    width: 778px;
+    height: 350px;
+    background: url(../img/banner-pic.jpg) no-repeat center;
+    position: relative;
+}
+.left_area .slogan1{
+    position: absolute;
+    top: 126px;
+    left: 330px;
+}
+.left_area .slogan2{
+    position: absolute;
+    top: 190px;
+    left: 418px;
+}
+.left_area .red_icon{
+    width: 75px;
+    height: 49px;
+    background: url(../img/red-icon.png) no-repeat center;
+    font-size: 26px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    top: 126px;
+    right: 77px;
+}
+.banner_wrap .right_area{
+    width: 422px;
+    height: 350px;
+    background-color: #fff;
+}
+.right_area .news_wrap{
+    margin-top: 28px;
+}
+.news_wrap .split{
+    width: 348px;
+    border: #e8e7e7 1px solid;
+    margin-left: 20px;
+}
+.right_area .news{
+    overflow: hidden;
+}
+.right_area .red_circle{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #fe5308;
+    border: #fe5308 2px solid;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.right_area .content{
+    width: 350px;
+    font-size: 20px;
+    color: #333333;
+    line-height: 32px;
+}
+
+
+/* 内容区域 */
+.main_wrap{
+    margin-top: 86px;
+    overflow: hidden;
+}
+
+/* 左侧资讯部分 */
+
+.information .element_wrap{
+    width: 872px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.information .element{
+    width: 420px;
+}
+.information .photo{
+    height: 253px;
+    position: relative;
+}
+.information .photo .date_box{
+    width: 58px;
+    height: 65px;
+    background-color: #5696ff;
+    position: absolute;
+    left: 18px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    line-height: 24px;
+}
+.information .title{
+    font-size: 20px;
+    color: #222222;
+    line-height: 24px;
+    margin-top: 22px;
+}
+.information .author_and_label{
+    font-size: 16px;
+    color: #666666;
+    margin-top: 8px;
+}
+.information .blue_font{
+    color: #5696ff;
+}
+.information .split{
+    border: #e8e7e7 1px solid;
+    margin-top: 16px;
+}
+.information .description{
+    font-size: 16px;
+    color: #666666;
+    margin-top: 12px;
+    margin-bottom: 28px;
+}
+/* 翻页 */
+.page_nav {
+    margin-top: 60px;
+}
+.page_nav .previous_btn,
+.next_btn {
+    width: 200px;
+    height: 60px;
+    border: #bcbcbc 1px solid;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 60px;
+    text-align: center;
+    letter-spacing: 4px;
+}
+.page_nav .nums {
+    width: 465px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 19px;
+}
+.nums .num {
+    margin-right: 16px;
+    margin-left: 23px;
+}
+.nums .active {
+    color: #5696ff;
+}
+
+
+/* 右侧行业资讯和标签 */
+.trends{
+    width: 273px;
+}
+.trends .title{
+    font-size: 24px;
+    color: #2e2e2e;
+    line-height: 24px;
+}
+.trends .blue_underline{
+    width: 56px;
+    height: 3px;
+    background-color: #5696ff;
+    border: #5696ff 2px solid;
+    box-sizing: border-box;
+    margin-left: 5px;
+    margin-top: 21px;
+}
+.trends_wrap .element{
+    margin-top: 24px;
+    overflow: hidden;
+}
+.trends_wrap .content{
+    width: 183px;
+}
+.trends_wrap .date{
+    font-size: 15px;
+    color: #5696ff;
+}
+.trends_wrap .aqua{
+    color: #01b1d7;
+}
+.trends_wrap .description{
+    font-size: 14px;
+    color: #222222;
+    margin-top: 5px;
+}
+.labels{
+    width: 273px;
+}
+.labels .title{
+    font-size: 24px;
+    color: #2e2e2e;
+    line-height: 24px;
+    margin-top: 26px;
+}
+.labels .blue_underline{
+    width: 56px;
+    height: 3px;
+    background-color: #5696ff;
+    border: #5696ff 2px solid;
+    box-sizing: border-box;
+    margin-left: 5px;
+    margin-top: 21px;
+}
+.labels .label_wrap{
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.label_wrap .visa1{
+    width: 141px;
+    height: 38px;
+    background-color: #5696ff;
+    font-size: 16px;
+    line-height: 38px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 6px;
+}
+.label_wrap .germany{
+    width: 122px;
+    height: 38px;
+    background-color: transparent;
+    border: #d7d7d7 2px solid;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 38px;
+    color: #a1a1a1;
+    text-align: center;
+    margin-bottom: 6px;
+}
+.label_wrap .japan{
+    width: 122px;
+    height: 38px;
+    background-color: transparent;
+    border: #d7d7d7 2px solid;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 38px;
+    color: #a1a1a1;
+    text-align: center;
+    margin-bottom: 6px;
+}
+.label_wrap .ticket{
+    width: 141px;
+    height: 38px;
+    background-color: transparent;
+    border: #d7d7d7 2px solid;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 38px;
+    color: #a1a1a1;
+    text-align: center;
+    margin-bottom: 6px;
+}
+.label_wrap .visa2{
+    width: 82px;
+    height: 38px;
+    background-color: transparent;
+    border: #d7d7d7 2px solid;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 38px;
+    color: #a1a1a1;
+    text-align: center;
+    margin-bottom: 6px;
+}
+.label_wrap .policy{
+    width: 82px;
+    height: 38px;
+    background-color: transparent;
+    border: #d7d7d7 2px solid;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 38px;
+    color: #a1a1a1;
+    text-align: center;
+    margin-bottom: 6px;
+}
+.label_wrap .transportation{
+    width: 82px;
+    height: 38px;
+    background-color: transparent;
+    border: #d7d7d7 2px solid;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 38px;
+    color: #a1a1a1;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+
+
+
+/* 底部 */
+.bottom_block {
+    width: 100%;
+    background-color: #5696ff;
+    margin-top: 68px;
+}
+.license {
+    font-size: 16px;
+    color: #fafafc;
+    line-height: 40px;
+}

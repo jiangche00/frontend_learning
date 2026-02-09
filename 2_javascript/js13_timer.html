@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #adv{
+            position: fixed;
+            right: 0;
+            bottom: -300px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            // 所有写在这里的js，都会在网页加载完毕之后再执行
+        }
+    </script>
+</head>
+<body>
+    <div id="txt">
+        <span>距离下课还有</span>
+        <span id="h"></span>
+        <span class="colon">:</span>
+        <span id="m"></span>
+        <span class="colon">:</span>
+        <span id="s"></span>
+    </div>
+    <button id="btn">获取验证码</button>
+    <div id="adv">
+        <div>
+            <button id="adv_btn">关闭广告</button>
+        </div>
+        <img src="adv.jpg" alt="">
+    </div>
+    <script src="js13_timer.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相互传值案例</title>
+    <style>
+        .box{width: 1000px; height: 1000px; background-color: gray;}
+        .sbox{width: 200px; height: 200px; background-color: pink; margin: auto;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="box">
+            <!-- 同级传值: 父到子再子到父，或者使用vuex -->
+
+
+
+            <button @click="show='block'">配置</button>
+            <!-- 绑display, props传display -->
+            <child :display="show" @abc="fn"></child>
+        </div>
+    </div>
+    <script>
+        const child={
+            // 父 --> 子传值, 传display
+            props:["display"],
+            template:`<div class="sbox" :style="{display}">
+                    <button @click="close">x</button>
+                </div>`,
+            methods:{
+                close() {
+                    // 用 $emit触发自定义事件abc, 触发运行fn, 在父组件中修改show的值
+                    this.$emit("abc");
+                },
+            }
+        }
+        new Vue({
+            el: "#app",
+            data:{
+                show:"none",
+            },
+            methods:{
+                fn(){
+                    if(this.show === "none") {
+                        this.show = "block";
+                    } else if (this.show === "block") {
+                        this.show = "none";
+                    }
+                },
+            },
+            components: {
+                child,
+            },
+        })
+    </script>
+</body>
+</html>

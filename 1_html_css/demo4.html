@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 父集和子集可以不是相邻层级的，可以是跨级的，比如这个例子中的box实际上是first的孙子集 */
+        .first .box {
+            width: 200px; height: 200px; background-color: red;
+        }
+        /* 子集可以是标签，比如如下的div */
+        .first div {
+            background-color: yellow;
+        }
+        /* 子集可以是id */
+        .first #purple {
+            width: 200px; height: 200px; background-color: purple;
+        }
+
+        .par .first .box {
+            width: 300px; height: 300px; background-color: orange;
+        }
+        /* 直接选择器 */
+        .par>.second>.box {
+            width: 100px; height: 100px; background-color: blueviolet;
+        }
+        /* 并列选择器 */
+        .first,.second{
+            width: 200px; height: 200px; background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        选择器：
+            子父集选择器
+                父元素 空格 子元素
+
+            直接子集选择器，父集选择直系的子集
+                父元素>子元素
+
+            并列选择器
+                classA,classB,..... (用逗号分隔)
+
+    -->
+    <div class="first">
+        <div>
+            <div class="box"></div>
+        </div>
+        <div id="purple"></div>
+    </div>
+    <div class="second">
+        <div class="box"></div>
+    </div>
+
+    <div class="par">
+        <div class="first">
+            <div class="box" id="blue">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="par">
+        <div class="second">
+            <div class="box">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

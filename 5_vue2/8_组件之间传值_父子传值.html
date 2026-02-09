@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件传值_父子传值</title>
+    <style>
+        .qq{width: 300px; height: 800px; background-color: gray;}
+        .detail{width: 200px; height: 200px; background-color: blue; margin-left: 400px;}
+        .avatar{width: 100px; height: 100px; background-color: yellow; border-radius: 50px;}
+        .first{width: 100px; height: 300px; background-color: pink;}
+        .second{width: 100px; height: 150px; background-color: palegreen;}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+        
+            组件之间传值:
+
+                父 -> 子 props
+                    子组件需要定义属性, 父组件调用组件时候传入属性
+                    1. 父组件定义数据
+                    2. 子组件要定义props来接收
+                    3. 调用子组件的时候传入数据
+                任何组件无权修改来自父组件的属性,如果强行修改，会缺失与父组件数据的关联
+                属性其实也相当于组件的数据，只不过不能修改
+
+        -->
+        <button @click="change">按钮</button>
+        <!-- 子组件child定义属性 props: ["a", "b"], 父组件将自己的msg传入,和一个固定值123 -->
+        <child :a="msg" :b="123"></child>
+
+        <div class="qq">
+            <!-- 点击avatar时 子组件 显示 或者 隐藏 -->
+            <div class="avatar" @click="showImage"></div>
+            <!-- 父组件的a传给子组件用show属性来接 -->
+            <info :show="a"></info>
+        </div>
+        <button @click="change">按钮</button>
+        <first-layer :aaa="msg"></first-layer>
+
+        <!-- 
+            作业:
+            三级传值
+                父 -> 子 -> 孙
+                (根VUE) -> (component: firstLayer) -> (component: secondLayer) 
+        -->
+    </div>
+    <script>
+
+        let child = {
+            // 这个特别像函数, props相当于函数的形参,在template里面定义的数据使用方式类似函数内部的处理
+            // 父组件将实参传进来
+            props: ["a", "b"],
+            template: `<div>我是子组件, {{a}}, {{b}}</div>`
+        };
+
+        let info = {
+            // 定义父子传值的属性show
+            props:["show"],
+            template:`<div class="detail" :style="{display:show}"></div>`,
+        };
+
+        let secondLayer = {
+            props:["bbb"],
+            template: `<div class="second">
+                        <p @click="fn">secondLayer</p>
+                        <p>{{bbb}}</p>
+                       </div>
+                      `,
+            methods: {
+                fn(){
+                    console.log(this.bbb);
+                }
+            },
+            watch: {
+                bbb(){
+                    console.log("数据变了");
+                }
+            }
+        }
+
+        let firstLayer = {
+            props:["aaa"],
+            template:`<div class="first">
+                        <p>firstLayer</p>
+                        <second-layer :bbb='aaa'></second-layer>
+                      </div>`,
+            components: {
+                secondLayer,
+            }
+        }
+
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"我是根组件的数据",
+                a:"none",
+            },
+            components:{
+                child,
+                info,
+                firstLayer,
+            },
+            methods:{
+                change(){
+                    this.msg="数据变了";
+                },
+                showImage(){
+                    this.a = this.a === "block" ? "none" : "block";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
