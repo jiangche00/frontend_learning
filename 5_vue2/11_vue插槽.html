@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_vue插槽</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <child>
+            <p>ppppppp</p>
+            <p>lllllll</p>
+        </child>
+        <p>---------------------------------------</p>
+        <child2>
+            <template #before>
+                <!-- msg是父组件的数据 -->
+                <p>aaa {{msg}}</p>
+            </template>
+            <!-- 定义props(名字任意), 传递给v-slot -->
+            <template #after="props">
+                <p>bbb {{msg}}</p>
+                <!-- 用props来引用子组件中的数据 -->
+                <p>{{props.abc}}</p>
+            </template>
+        </child2>
+    </div>
+    <script>
+
+
+        /*
+            插槽： 给组件标签中的内容预留的位置 (实际工作中用的比较多)
+            在template里面用<slot></slot>标签，占位置, 例子的p标签就插到这个slot里面
+
+            如果在模板中有多个插槽，则组件标签中的内容会在多个插槽中重复渲染
+
+            作用域插槽:(实际工作中，用的不多)
+                如果组件标签中想要使用组件内的数据
+                    1. 需要在模板的插槽中定义: 自定义属性="组件自己的数据"
+                    2. 在组件标签的template上通过 v-slot:属性="props" props代表传递所有属性的集合，是个对象
+        */
+        const child = {
+            template:`
+            <div>
+                <slot></slot>
+                <h1>天气不错</h1>
+                <slot></slot>
+            </div>
+            `,
+            data() {
+                return {
+                    msg:"data in child."
+                }
+            }
+        }
+
+        /*
+            具名插槽:
+                需要插入的，用template包起来，在template标签上添加v-slot标签，和模板中的name名字相对应
+                实现特定内容插入到特定slot的目的
+                简写方式 井号 v-slot:before 简写为 #before
+        */
+
+        const child2 = {
+            template:`
+            <div>
+                <slot name="before"></slot>
+                <h1>运气不错</h1>
+                <!-- 自组件使用自定义事件abc绑定数据中的msg, 供外部调用时使用 -->
+                <slot name="after" :abc="msg"></slot>
+            </div>
+            `,
+            data() {
+                return {
+                    msg:"data in child2."
+                }
+            }
+        }
+
+
+        new Vue({
+            el:"#app",
+            components:{
+                child,
+                child2
+            },
+            data: {
+                msg: "data from root."
+            }
+        })
+    </script>
+</body>
+</html>

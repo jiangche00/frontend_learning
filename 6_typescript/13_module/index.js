@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// ts模块化是建立在es6模块化的基础上,与JS中的写法有许多的不同之处
+// 任何包含 import 或 export 语句的文件,就是一个模块(module)。相应地,如果文件不包含 export 语
+// 句,就是一个全局的脚本文件。
+// 模块本身就是一个作用域,不属于全局作用域。模块内部的变量、函数、类只在内部可⻅,对于模块外部是
+// 不可⻅的。暴露给外部的接口,必须用 export 命令声明;如果其他文件要使用模块的接口,必须用 import
+// 命令来输入。
+// 如果一个文件不包含 export 语句,但是希望把它当作一个模块(即内部变量对外不可⻅),可以在脚本头部
+// 添加一行语句。
+// export {};
+//# sourceMappingURL=index.js.map

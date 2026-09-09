@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!--
+    使用组件
+      第一步,注册组件
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+
+        // 子组件定义，推荐用大驼峰命名方式
+        const MyChild={
+            template:`
+            <h1>my child</h1>
+            <slot></slot>
+            `,
+            data() {
+                return {
+                    info:"child component"
+                }
+            }
+        }
+
+
+        createApp({
+            // 使用时标签名字，大驼峰变成用 - 连接的，统一用小写
+            template: `
+            <my-child>
+                <h3>给插槽用的</h3>
+            </my-child>
+            `,
+            // 在这个根组件里面将 子组件 注册
+            components: {
+                MyChild,
+            },
+            data() {
+                return {
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

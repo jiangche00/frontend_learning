@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {display: flex;}
+        .tab div {margin-left: 10px;}
+        .content {width: 100px; height: 100px; text-align: center; line-height: 100px;}
+        .content div {display: none;}
+        .content .act {display: block;}
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-on: 绑定事件，简写 @
+            1. 需要参数函数就要加括号，不需要参数就不加
+            2. 如果同时需要到事件对象和业务参数，
+                2.1 封装一下类似如下: @click="(e)=>{fn(param, e)}"
+                2.2 使用$event关键字: @click="fn(param, $event)"
+
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <div @click="fn">{{ msg }}</div>
+            <div :style=[basicStyle]></div>
+            <button @click="visibleToggle">toggle</button>
+            <div class="tab">
+                <div @click="show(1)" :style="{backgroundColor: getColor(1)}">体育</div>
+                <div @click="show(2)" :style="{backgroundColor: getColor(2)}">科技</div>
+                <div @click="show(3)" :style="{backgroundColor: getColor(3)}">娱乐</div>
+            </div>
+            <div class="content">
+                <div :class="{act:selected==1}" :style="{backgroundColor: getColor(1)}">体育内容</div>
+                <div :class="{act:selected==2}" :style="{backgroundColor: getColor(2)}">科技内容</div>
+                <div :class="{act:selected==3}" :style="{backgroundColor: getColor(3)}">娱乐内容</div>
+            </div>
+            `,
+            methods: {
+                fn() {
+                    this.msg = "heiheihei";
+                },
+                visibleToggle() {
+                    if (this.visible) {
+                        this.basicStyle.display = "none";
+                    } else {
+                        this.basicStyle.display = "block";
+                    }
+                    this.visible = !this.visible;
+                },
+                show(index) {
+                    this.selected = index;
+                },
+                getColor(index) {
+                    if(this.selected===index){
+                        return this.colorPalette[index-1];
+                    } else {
+                        return "";
+                    }
+                }
+            },
+            data() {
+                return {
+                    msg: "hahaha",
+                    visible: true,
+                    basicStyle:{
+                        width: "100px",
+                        height: "100px",
+                        backgroundColor: "#666666",
+                        display: "block",
+                    },
+                    selected: 0,
+                    colorPalette: ["#C5D5EA","#759EB8","#F15156"],
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

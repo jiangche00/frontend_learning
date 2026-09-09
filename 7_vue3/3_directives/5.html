@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-for 循环
+        key: 方便vue内部的diff算法快速准确定位到具体的item,应该是个独一无二的值
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <ul>
+                <li v-for="item in like" :key="item">{{ item }}</li>
+            </ul>
+            <div v-for="i in 9">
+                <template v-for="j in i">
+                    <span>{{ i }}*{{ j }}={{ i * j }}&nbsp;&nbsp;</span>
+                </template>
+            </div>
+            `,
+            data() {
+                return {
+                    like:["eat","swim","play game"],
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

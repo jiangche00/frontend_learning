@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1. vue全家桶
+                vue2.x核心 + vue-router3.x + vue/cli + vuex3.x + (axios) + elementui 
+                vue3.x核心 + vue-router4.x + vue/cli + vuex4.x + (axios) + element plus
+
+            2. v-text v-html v-bind(:) v-on(@) v-if v-show v-for v-slot v-model
+            3. class style 能绑定到字符串/数组/对象
+            4. 组件的配置项 data methods computed watch 生命周期函数 components
+            5. 根实例中多的两个 router store
+            6. 组件之间传值 父->子(props) 子->父(自定义事件 + $emit)
+            7. watch可以监听的 data computed props $route
+            8. 项目： 需要什么装什么, 如果是给vue量身定做的，需要用Vue.use()注册，如vuex, vue-router
+            9. vue-router
+                1. router-link router-view
+                2. 路由配置项
+                    path name component(可以懒加载) children redirect alias meta
+                3. 嵌套路由
+                    1. path规定： 父路由/a 子路由 /a/b 或者 b
+                    2. 需要规定router-view
+                    3. 子需要在路由配置项中加children
+                4. 路由模式
+                    hash: 丑但是没问题
+                    history: 好看但是刷新404 需要后端nginx解决
+                5. params(多个路径匹配同一个页面 比如查成绩教务系统 /class1/zhangsan 和 /class2/lisi 进的是同一个页面) 和 query(跨页面传值)
+                6. 导航守卫
+                    最常用的：全局前置守卫. 一定要避免死循环(无论走哪种条件，一定虽最后要执行next()放行，无论是放行到哪个页面)
+            10. vuex
+                state: 存数据的
+                getters: 类似于computed计算数据的
+                mutations: 唯一能改数据的 里面定义的是唯一方法 不能写异步代码
+                actions: 部负责改数据，负责写异步代码，然后提交mutation去改
+                modules: 模块
+                辅助函数
+                    mapState mapGetters mapMutations mapActions
+
+                vuex的数据不是持久化存储的(刷新就丢失的)
+
+            
+        
+        */
+    </script>
+</body>
+</html>

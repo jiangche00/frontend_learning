@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 
+        计算属性computed是基于缓存的，如果计算属性用到的数据没变化，视图不会重新渲染
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <div>{{ com1 }}</div>
+            <div>{{ com2 }}</div>
+            <button @click="click">button</button>
+            <button @click="click2">button2</button>
+            `,
+            computed: {
+                com1() {
+                    console.log("com1 executed");
+                    return this.val;
+                },
+                com2() {
+                    console.log("com2 executed");
+                    return this.val2;
+                }
+            },
+            methods: {
+                click() {
+                    this.val = Math.random().toString();
+                },
+                click2() {
+                    this.val2 = Math.random() * 10;
+                }
+            },
+            data() {
+                return {
+                    val:"1",
+                    val2: 1,
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

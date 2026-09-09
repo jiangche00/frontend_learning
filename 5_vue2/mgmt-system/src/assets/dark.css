@@ -1,0 +1,131 @@
+body.dark {
+  background: #141414;
+  color: #e5eaf3;
+}
+
+body.dark .el-main,
+body.dark .el-container,
+body.dark .el-header,
+body.dark .el-footer,
+body.dark .el-aside {
+  background-color: #1e1e1e;
+  color: #e5eaf3;
+}
+
+body.dark .el-card,
+body.dark .el-dialog,
+body.dark .el-message-box {
+  background-color: #1f1f1f;
+  color: #e5eaf3;
+  border-color: #303030;
+}
+
+body.dark .el-card__header {
+  border-bottom: 1px solid #555;
+}
+
+body.dark .el-input__inner,
+body.dark .el-textarea__inner {
+  background-color: #1f1f1f;
+  color: #e5eaf3;
+  border-color: #444;
+}
+
+body.dark .el-input__inner::placeholder,
+body.dark .el-textarea__inner::placeholder {
+  color: #909399;
+}
+
+body.dark .el-button--default {
+  background-color: #2b2b2b;
+  border-color: #555;
+  color: #e5eaf3;
+}
+
+body.dark .el-table,
+body.dark .el-table th,
+body.dark .el-table tr,
+body.dark .el-table td {
+  background-color: #1f1f1f;
+  color: #666;
+  border-color: #303030;
+}
+
+body.dark .el-calendar,
+body.dark .el-calendar .el-calendar__header,
+body.dark .el-calendar .el-calendar-day {
+  background-color: #1f1f1f;
+}
+
+body.dark .el-calendar__title {
+  color: #909399;
+}
+
+body.dark .el-calendar-day:hover,
+body.dark .el-calendar-day:focus,
+body.dark .el-calendar-day:active {
+  color: #1f1f1f;
+  background-color: #555;
+}
+
+body.dark .el-calendar-table:not(.is-range) td.next, 
+body.dark .el-calendar-table:not(.is-range) td.prev {
+  color: #666;
+}
+
+body.dark .el-table::before,
+body.dark .el-table__fixed::before,
+body.dark .el-table__fixed-right::before {
+  background-color: #303030;
+}
+
+body.dark .el-menu {
+  background-color: #1a1a1a;
+  border-color: #303030;
+}
+
+body.dark .el-menu-item,
+body.dark .el-submenu__title {
+  color: #e5eaf3;
+}
+
+body.dark .el-menu-item:hover,
+body.dark .el-submenu__title:hover {
+  background-color: #2a2a2a;
+}
+
+body.dark .el-pagination button,
+body.dark .el-pager li {
+  background-color: #1f1f1f;
+}
+
+body.dark .el-pager li:active {
+  color: #409EFF;
+}
+
+body.dark .el-select-dropdown,
+body.dark .el-picker-panel,
+body.dark .el-dropdown-menu {
+  background-color: #1f1f1f;
+  border-color: #303030;
+}
+
+body.dark .el-dropdown,
+body.dark .el-select-dropdown__item,
+body.dark .el-dropdown-menu__item {
+  color: #e5eaf3;
+}
+
+body.dark .el-select-dropdown__item.hover,
+body.dark .el-select-dropdown__item:hover,
+body.dark .el-dropdown-menu__item:hover {
+  background-color: #2a2a2a;
+}
+
+body.dark .el-range-input {
+  background-color: #2a2a2a;
+}
+
+body.dark .el-radio-button__inner {
+  background-color: #2a2a2a;
+}

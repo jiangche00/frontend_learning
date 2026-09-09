@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 
+    
+    常用指令:
+        v-html: 把变量值渲染到元素的innerHTML里面
+        v-text: 把变量值渲染到元素的innerText里面
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <h1>{{ name }}, {{ age }}</h1>
+            <div v-html="str"></div>
+            <div v-text="str"></div>
+            `,
+            data() {
+                return {
+                    name:"张三",
+                    age:18,
+                    str:"<h1>hello vue3</h1>"
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

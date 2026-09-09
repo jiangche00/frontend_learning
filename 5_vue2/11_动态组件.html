@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_动态组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 动态绑定组件 -->
+        <component :is="com1"></component>
+        <component :is="'com' + '2'"></component>
+
+        <!-- 作业: 使用动态组件的方式实现导航栏功能，每个导航的内容用组件来做，点击导航栏具体功能进行切换，点击之后具体功能高亮 -->
+    </div>
+    <script>
+
+        /*
+        
+        动态组件:
+        
+        */
+
+        const com1 = {
+            template: `<div>我是组件1</div>`
+        }
+
+        const com2 = {
+            template: `<div>我是组件2</div>`
+        }
+
+        const com3 = {
+            template: `<div>我是组件3</div>`
+        }
+
+        new Vue({
+            el:"#app",
+            components:{
+                com1,com2,com3
+            },
+            data:{}
+        })
+    </script>
+</body>
+</html>

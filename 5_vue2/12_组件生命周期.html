@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_组件生命周期</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 修改nowCom，变更绑定的组件，模拟旧组件销毁，新组件创建。模拟触发beforeDestroy和destroyed -->
+        <button @click="nowCom='com2'">button</button>
+        <component :is="nowCom"></component>
+    </div>
+    <script>
+        /*
+        
+            组件的生命周期:
+                生命周期/钩子函数: 在某个阶段自动触发的函数
+                    创建前(beforeCreate)
+                    创建后(created)
+                    挂载前(beforeMount)  -- 组件渲染前
+                    挂载后(mounted) -- 组件渲染后
+                    更新前(beforeUpdate) -- 使用的数据发生变化并要重新渲染
+                    更新后(updated) -- 数据变化并渲染完毕
+                    卸载前(beforeDestroy) -- 组件销毁之前触发
+                    卸载后(destroyed) -- 组件销毁之后触发
+        
+                工作中用的多的： created, mounted, updated
+        */
+        const com1 = {
+            template: `<div @click="msg='world'">组件1,{{msg}}</div>`,
+            data(){
+                return {
+                    msg:"hello"
+                }
+            },
+            beforeCreate() {
+                console.log("beforeCreate");
+            },
+            created() {
+                console.log("created");
+            },
+            beforeMount() {
+                console.log("beforeMount");
+            },
+            mounted() {
+                console.log("mounted");
+            },
+            // 数据变化，重新渲染时，触发
+            beforeUpdate() {
+                console.log("beforeUpdate");
+            },
+            updated() {
+                console.log("updated");
+            },
+            // 组件销毁时触发
+            beforeDestroy() {
+                console.log("beforeDestroy");
+            },
+            destroyed() {
+                console.log("destroyed");
+            }
+        }
+
+        const com2 = {
+            template: `<div>com2</div>`
+        }
+
+        new Vue({
+            el:"#app",
+            components:{
+                com1,com2
+            },
+            data:{
+                nowCom: "com1"
+            }
+        })
+    </script>
+</body>
+</html>

@@ -17,9 +17,9 @@
 
 
 
-            <button @click="show='block'">配置</button>
+            <button @click="sho='block'">配置</button>
             <!-- 绑display, props传display -->
-            <child :display="show" @abc="fn"></child>
+            <child :display="sho" @abc="fn"></child>
         </div>
     </div>
     <script>
@@ -39,14 +39,14 @@
         new Vue({
             el: "#app",
             data:{
-                show:"none",
+                sho:"none",
             },
             methods:{
                 fn(){
-                    if(this.show === "none") {
-                        this.show = "block";
-                    } else if (this.show === "block") {
-                        this.show = "none";
+                    if(this.sho === "none") {
+                        this.sho = "block";
+                    } else if (this.sho === "block") {
+                        this.sho = "none";
                     }
                 },
             },

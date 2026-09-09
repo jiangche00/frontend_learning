@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!--
+        v-model 双向绑定，只要是表单就要用v-model将表单和vue的数据绑定
+        v-model.lazy 改为在每次 change 事件后更新数据
+        v-model.number 如果该值无法被 parseFloat() 处理，那么将返回原始值
+        v-model.trim 去除用户输入内容中两端的空格
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <input type="text" placeholder="请输入代办事项" v-model.trim="val">
+            <button @click="add">添加</button>
+            <ul>
+                <li v-for="(item, index) in list" @click="del(index)">{{ item }}</li>
+            </ul>
+            `,
+            methods: {
+                add() {
+                    this.list.push(this.val);
+                    this.val = "";
+                },
+                del(index){
+                    this.list.splice(index, 1);
+                }
+            },
+            data() {
+                return {
+                    val:"",
+                    list:[]
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

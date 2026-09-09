@@ -4,9 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>购物车</title>
+    <style>
+        table{width: 800px; margin: auto; border: 1px solid; border-collapse: collapse;}
+        td{height: 50px; text-align: center; border: 1px solid;}
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <div class="box">
+            <!-- 这里用table排版，图方便 -->
+
+
+            <!-- 
+            
+            用computed计算属性的情况:
+                1. 只需要个值的时候
+                2. 当别的操作比如点击按钮，选中条目之类的，会影响到某些值的变化的时候，用计算属性
+            
+            用methods:
+                具体操作所触发的所对应的实体的变化
+
+
+            比如购物车中一些总价的计算，总选中项的计算，会依实际选中对象而动态计算，这种是拿data部分的数据计算完了做展示用的值，这种的就用computed
+
+            像按钮的点击，涉及到data部分数据的更改，对象样式(也是data部分里面的数据)的更改之类的，或者操作事件所作用的直接对象的，用method
+
+            本质上用计算属性能做的，用函数都能做，但是computed性能会好
+
+
+
+            vue开发过程中，牢记，数据驱动视图
+            开发过程中，是渐进式的，在开发过程中不断修改
+
+            有点儿像是游戏脚本开发
+            
+            -->
+
+
+            <table>
+                <tr v-for="(item, index) in products">
+                    <!-- 选中用selected.png, 没选中用unselect.png -->
+                    <td>
+                        <img @click="select(index)" :src="item.select?'img/select.png':'img/unselect.png'"> 
+                    </td>
+                    <!-- 商品名称 -->
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <!-- 商品价格 -->
+                    <td>
+                        {{item.price}}
+                    </td>
+                    <!-- 商品数量 -->
+                    <td>
+                        {{item.count}}
+                    </td>
+                    <!-- 商品加减选择 -->
+                    <td>
+                        <!-- 思路： 传index，用于定位数据 -->
+                        <button @click="changeCount(true,index)">+</button>
+                        <button @click="changeCount(false,index)">-</button>
+                    </td>
+                    <!-- 垃圾桶 -->
+                    <td>
+                        <img @click="remove(index)" src="img/delete.png" alt="">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img @click="selectAll" :src="allImg?'img/select.png':'img/unselect.png'">
+                    </td>
+                    <td>已选 ({{selArr.length}})</td>
+                    <!-- 使用计算属性计算总价 -->
+                    <td>${{totalPrice}}</td>
+                    <td colspan="3">
+                        <button :disabled="disabled" >结算</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            // vue思想: 什么要变，就把什么设计为变量
+            data:{
+                // 商品部分
+                products:[
+                    {select: false, name:"iPhone14", price:10000, count:0},
+                    {select: false, name:"keyboard", price:400, count:0},
+                    {select: false, name:"粉底液", price:300, count:0},
+                    {select: false, name:"ps5", price:5000, count:0},
+                ],
+                // 总价汇总部分
+                total: {
+                    price: 0,
+                    disabled: true,
+                },
+                // 选中项
+                selArr:[],
+                // 是否全选的flag
+                flag:false,
+            },
+            methods:{
+                changeCount(flag,index){
+                    if(flag){
+                        // 点加号, 找到对应的数据条目，改其count
+                        // 改对象(products[0], products[1], ...)的属性，能够触发视图更新
+                        this.products[index].count++;
+                    } else {
+                        // 点减号找到对应的数据条目，改其count
+                        // 不能小于0
+                        if (this.products[index].count > 0) {
+                            this.products[index].count--;
+                        }
+                    }
+                },
+                select(index){
+                    this.products[index].select = !this.products[index].select;
+                },
+                selectAll(){
+                    for(let i=0; i < this.products.length; i++){
+                        this.products[i].select = this.flag?false:true;
+                    }
+                },
+                remove(index){
+                    this.products.splice(index,1);
+                }
+            },
+            computed:{
+                // 使用计算属性计算总价，只要其依赖的数据发生变化，就触发试图更新
+                // 依赖的数据有products每一项的select, 每一项的count， 每一项的price
+                totalPrice(){
+                    this.total.price = 0;
+                    // 用 filter 返回 select 为 true 的
+                    this.selArr = this.products.filter((item)=>{
+                        return item.select;
+                    })
+                    // 计算总价
+                    this.selArr.forEach((item)=>{
+                        this.total.price += item.count * item.price;
+                    })
+                    return this.total.price;
+                },
+
+                allImg(){
+                    this.flag = this.selArr.length === this.products.length;
+                    return this.flag?true:false;
+                },
+
+                disabled(){
+                    return this.total.price === 0 ? true : false;
+                },
+            }
+        })
+    </script>
 </body>
 </html>

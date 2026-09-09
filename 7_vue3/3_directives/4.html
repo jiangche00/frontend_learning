@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-show: 控制隐藏或者显示，后面跟个boolean值 true显示，false不显示
+        本质是改了样式,如果是false就是加了display:none
+
+        v-if: 也是控制隐藏或者显示，后面跟boolean值 true显示，false不显示
+        和上面的不同，v-if在false的情况下，会删除或者不生成元素, true的情况下会创建元素
+
+        因此, v-show有更高的初始渲染开销，v-if有更高的切换开销
+
+        可用<template></template>结合v-if包裹多个元素
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <div v-if="random<=3">v-if</div>
+            <div v-else-if="random>3&&random<=7">v-else-if</div>
+            <div v-else>v-else</div>
+            <button @click="change">click</button>
+            <template v-if="flag">
+                <div>123</div>
+                <div>456</div>
+                <div>789</div>
+            </template>
+            `,
+            methods: {
+                change() {
+                    this.random = Math.random() * 10;
+                    this.flag = !this.flag;
+                }
+            },
+            data() {
+                return {
+                    random:0.0,
+                    flag: false,
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

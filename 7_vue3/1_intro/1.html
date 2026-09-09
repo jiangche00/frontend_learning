@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    vue全家桶: vue核心 vue-router pinia/vuex vite/webpack elementplus/antd
+    vue特色:
+    1. 支持组件化
+    2. 性能提升
+
+    vue3比vue2的优势
+        1. 性能好
+        2. 体积小
+        3. 支持ts
+        4. 更好的内置插件
+        5. 组合式api (vue2用的是选项式api)
+    <div id="app"></div>
+    <script>
+        const {createApp} = Vue;
+        console.log(createApp);
+        const App={
+            template:`<h1>component1</h1>`
+        };
+        Vue.createApp(App).mount("#app");
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 
+        watch监听器，默认是浅监听(监听对象整体全都变了才触发)
+        还有一种深监听模式，下面用obj对象里面的某个属性变化做例子
+        但是深监听比较耗费性能
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <h1>{{ msg }}</h1>
+            <h1>{{ a }}</h1>
+            <h1>{{ b }}</h1>
+            <h2>{{ num }}</h2>
+            <h3>{{ obj }}</h3>
+            <button @click="changeA">改a</button>
+            <button @click="changeB">改b</button>
+            <button @click="changeC">改msg</button>
+            <button @click="changeObj">改obj</button>
+            `,
+            data() {
+                return {
+                    a: 1,
+                    b: 2,
+                    msg: "msg",
+                    obj: {
+                        name: "aaa",
+                        gender: "male",
+                    }
+                }
+            },
+            methods: {
+                changeA() {
+                    this.a = 100;
+                },
+                changeB() {
+                    this.b = 200;
+                },
+                changeC() {
+                    this.msg = "msg2"
+                },
+                changeObj() {
+                    this.obj.name = "bbb"
+                }
+            },
+            computed: {
+                num() {
+                    return this.a + this.b;
+                }
+            },
+            watch: {
+                // 监听同名的数据
+                a() {
+                    console.log("a changed");
+                },
+                // 监听同名的computed
+                num() {
+                    console.log("computed num changed");
+                },
+                obj: {
+                    // handler里面实现当obj变了的时候执行什么操作
+                    handler() {
+                        console.log("obj changed")
+                    },
+                    // 设置为深监听
+                    deep: true
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

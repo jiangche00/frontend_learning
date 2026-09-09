@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态组件_导航栏</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #titles{overflow: hidden;}
+        .tag{
+            width: 80px;
+            height: 50px;
+            background-color: gray;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 5px;
+            color: #fff;
+        }
+        .content{
+            width: 335px;
+            height: 300px;
+            background-color: pink;
+            display: none;
+        }
+        .act_content{display: block;}
+        .act_tag{background-color: red;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="titles">
+            <template v-for="(item,index) in title" :key="index+'_'+item">
+                <div class="tag" :class="{ act_tag: index === activeIndex }" @click="setActive(index)">{{item}}</div>
+            </template>
+        </div>
+        <div id="contents">
+            <template v-for="(item,index) in title" :key="index+'_'+item">
+                <component :is="'com_' + index" :class="{ act_content: index === activeIndex }"></component>
+            </template>
+        </div>
+    </div>
+    <script>
+        const com_0 = {
+            template: `
+                <div class="content">
+                    <p>体育1</p>
+                    <p>体育2</p>
+                    <p>体育3</p>
+                    <p>体育4</p>
+                </div>
+            `,
+        }
+        const com_1 = {
+            template: `
+                <div class="content">
+                    <p>科技1</p>
+                    <p>科技2</p>
+                    <p>科技3</p>
+                    <p>科技4</p>
+                </div>
+            `,
+        }
+        const com_2 = {
+            template: `
+                <div class="content">
+                    <p>电影1</p>
+                    <p>电影2</p>
+                    <p>电影3</p>
+                    <p>电影4</p>
+                </div>
+            `,
+        }
+        const com_3 = {
+            template: `
+                <div class="content">
+                    <p>娱乐1</p>
+                    <p>娱乐2</p>
+                    <p>娱乐3</p>
+                    <p>娱乐4</p>
+                </div>
+            `,
+        }
+        new Vue({
+            el:"#app",
+            components:{
+                com_0,com_1,com_2,com_3
+            },
+            data:{
+                title: ["体育新闻","科技新闻","电影新闻","娱乐新闻"],
+                activeIndex: 0
+            },
+            methods: {
+                setActive(index) {
+                    this.activeIndex = index;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

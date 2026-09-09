@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-bind: 动态绑定属性, 简写冒号, 当属性名和绑定的属性同名，能更简化(3.4+版本新增的)
+            v-bind:id="id"
+            :id="id"
+            :id
+
+        在一个element里面绑定多个属性时可以简写:
+        :="{id,class:a}"
+
+        绑定class属性, style属性时候的一些特殊的规则
+        class:
+            可以绑定一个对象, :class="classObj"
+            可以绑定数组，:class="[activeClass, errorClass]"
+        style:
+            可以绑定一个对象
+            可以绑定一个数组
+
+
+        动态绑定属性名:
+        :[key]="name"
+    -->
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            template: `
+            <div :id></div>
+            <div :="{id:id,class:a}"></div>
+            <div :class="{active:flag1,base:flag2}"></div>
+            <div :class="classObj"></div>
+            <div :style="styleObj"></div>
+            <div :[key]="classObj"></div>
+            `,
+            data() {
+                return {
+                    key:"class",
+                    id:"title",
+                    flag1:false,
+                    flag2:true,
+                    classObj:{
+                        active:true,
+                        base:false,
+                    },
+                    styleObj:{
+                        width:"200px",
+                        height:"100px",
+                    }
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

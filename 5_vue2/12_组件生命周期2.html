@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12_组件生命周期2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+        <component :is="nowCom"></component>
+    </div>
+    <script>
+        /*
+            父子组件的情况，
+
+            com1 beforeCreate
+            com1 created
+            com1 beforeMount
+            com2 beforeCreate
+            com2 created
+            com2 beforeMount
+            com2 mounted
+            com1 mounted
+        */
+        const com2 = {
+            template: `<div>com2</div>`,
+            beforeCreate() {
+                console.log("com2 beforeCreate");
+            },
+            created() {
+                console.log("com2 created");
+            },
+            beforeMount() {
+                console.log("com2 beforeMount");
+            },
+            mounted() {
+                console.log("com2 mounted");
+            },
+            beforeUpdate() {
+                console.log("com2 beforeUpdate");
+            },
+            updated() {
+                console.log("com2 updated");
+            },
+            beforeDestroy() {
+                console.log("com2 beforeDestroy");
+            },
+            destroyed() {
+                console.log("com2 destroyed");
+            }
+        }
+        const com1 = {
+            template: `
+            <div @click="show=false">
+                com1
+                <com2></com2>
+            </div>
+            `,
+            beforeCreate() {
+                console.log("com1 beforeCreate");
+            },
+            created() {
+                console.log("com1 created");
+            },
+            beforeMount() {
+                console.log("com1 beforeMount");
+            },
+            mounted() {
+                console.log("com1 mounted");
+            },
+            beforeUpdate() {
+                console.log("com1 beforeUpdate");
+            },
+            updated() {
+                console.log("com1 updated");
+            },
+            beforeDestroy() {
+                console.log("com1 beforeDestroy");
+            },
+            destroyed() {
+                console.log("com1 destroyed");
+            },
+            components: {
+                com2,
+            }
+        }
+
+        new Vue({
+            el:"#app",
+            components:{
+                com1
+            },
+            data:{
+                nowCom: "com1"
+            }
+        })
+    </script>
+</body>
+</html>
